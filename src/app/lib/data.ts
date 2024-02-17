@@ -6,17 +6,54 @@ export async function fetchPost() {
     //TODO
 }
 
-export async function fetchPreviewData(postIds: (number)[]) {
+export async function fetchPreviewData() {
     noStore();
 
-    const data = sql`
-        SELECT 
-            title, date, 
-            SUBSTR(
-                SUBSTR(content, 1, 80), 
-                1, 
-                80 - POSITION(" " IN (REVERSE(SUBSTR(content, 1, 80))))
-            ) AS content
-        FROM posts
-        WHERE post_id IN ${postIds[0]}, ${postIds[1]}`;
+    try {
+        const recent = sql`
+            SELECT 
+                title, publish_date, 
+                SUBSTR(
+                    SUBSTR(content, 1, 80), 
+                    1, 
+                    80 - POSITION(" " IN (REVERSE(SUBSTR(content, 1, 80))))
+                ) AS content
+            FROM posts
+            WHERE publish_date = MAX(publish_date);
+            `;
+    
+        const top = sql`
+            SELECT 
+                title, publish_date, 
+                SUBSTR(
+                    SUBSTR(content, 1, 80), 
+                    1, 
+                    80 - POSITION(" " IN (REVERSE(SUBSTR(content, 1, 80))))
+                ) AS content
+            FROM posts
+            WHERE interaction = MAX(interaction);
+            `;
+        
+        const data = await Promise.all([
+            recent,
+            top
+        ]);
+        
+        const recentData = {
+            title: data[0].rows[0].title,
+            date: data[0].rows[0].publish_date,
+            content: data[0].rows[0].content,
+        };
+        const topData = {
+            title: data[1].rows[0].title,
+            date: data[1].rows[0].publish_date,
+            content: data[1].rows[0].content,
+        };
+
+        return [recentData, topData];
+
+
+    } catch (error) {
+        throw new Error('Failed to data for home page post previews from database.');
+    }
 }

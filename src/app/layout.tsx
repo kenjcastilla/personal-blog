@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen flex-col">
-      <div className="flex flex-row w-full">
+    <div className="fixed flex flex-col w-screen h-screen">
+      <div className="sticky-top-0 flex flex-row ml-[1%] mt-[1%] w-full">
         <NavLinks />
       </div>
       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
