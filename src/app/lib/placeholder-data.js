@@ -1,6 +1,6 @@
 export const entries = [
     {
-        id: 0,
+        id: '0',
         title: 'to you humans...(and you virtual traffic robocops...)',
         writtenDate: '02feb2024',
         publishedDate: '',

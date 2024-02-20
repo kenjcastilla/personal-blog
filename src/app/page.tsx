@@ -1,17 +1,32 @@
 import PreviewWrapper from "./ui/home/previews";
 
 export default function Page() {
-    return (
-        <main>
-            <div id="homeFull" className="grid w-full h-full">
-                <div className="grid ml-[10%] mt-[0.5%] w-[80%] h-[15%]">
-                    <h1 className="justify-self-center h-full w-full text-3xl text-center md:text-6xl">Kinetic Juice Cartons</h1>
-                    <h2 className="justify-self-center text-l md:text-xl">A Blog by KenJC</h2>
-                </div>
-                <div className="flex flex-col w-[60%] h-[70%] ml-[20%] mt-[5%] mb-[5%]">
-                    <PreviewWrapper />
-                </div>
-            </div>
-        </main>
-    );
+  return (
+    <div id="homeFull" className="grid justify-items-center w-full h-full">
+      <div id="homeTitleDiv" className="flex flex-col mt-[5%] items-center content-center w-[80%] h-[45%]
+            sm:h-[40%]">
+        <div id="homeTitleHeaderDiv" className="flex-1 w-full h-[75%]">
+          <h1 id="homeTitleHeader" className="w-full bg-white text-center text-4xl text-black
+            sm:text-4xl
+            md:text-6xl">
+            Kinetic Juice Cartons
+          </h1>
+        </div>
+        <div id="homeTitleSubheaderDiv" className="flex-1 w-full h-[20%]">
+          <h2 id="homeTitleSubheader" className="text-center text-base w-full
+            md:text-xl">
+            A Blog by KenJC
+          </h2>
+        </div>
+      </div>
+      <div id="previewsDiv" className="flex flex-col gap-y-8 justify-self-center content-center w-[60%] h-[50%]
+            sm:h-[65%]
+            md:gap-y-5">
+        <PreviewWrapper />
+      </div>
+    </div >
+  );
 }
+
+{/* <div id="homeTitleDiv" className="grid justify-items-center w-[80%] h-[40%]
+            sm:h-[35%]"></div> */}

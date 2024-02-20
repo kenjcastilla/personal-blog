@@ -21,10 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <div className="fixed flex flex-col w-screen h-screen">
-      <div className="sticky-top-0 flex flex-row ml-[1%] mt-[1%] w-full">
+      <div className="sticky-top-0 flex flex-row mt-[1%] w-[94%] ml-[3%]
+          sm:ml-[1%] sm:w-full">
         <NavLinks />
       </div>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+      <main className="w-full h-full">
+        <div className="w-full h-full">
+          {children}
+        </div>
+      </main>
     </div>
   );
 }

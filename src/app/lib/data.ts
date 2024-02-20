@@ -12,7 +12,7 @@ export async function fetchPreviewData() {
     try {
         const recent = sql`
             SELECT 
-                title, publish_date, 
+                id, title, publish_date, 
                 SUBSTR(
                     SUBSTR(content, 1, 80), 
                     1, 
@@ -24,7 +24,7 @@ export async function fetchPreviewData() {
     
         const top = sql`
             SELECT 
-                title, publish_date, 
+                id, title, publish_date, 
                 SUBSTR(
                     SUBSTR(content, 1, 80), 
                     1, 
@@ -40,11 +40,13 @@ export async function fetchPreviewData() {
         ]);
         
         const recentData = {
+            id: data[0].rows[0].id,
             title: data[0].rows[0].title,
             date: data[0].rows[0].publish_date,
             content: data[0].rows[0].content,
         };
         const topData = {
+            id: data[1].rows[0].id,
             title: data[1].rows[0].title,
             date: data[1].rows[0].publish_date,
             content: data[1].rows[0].content,

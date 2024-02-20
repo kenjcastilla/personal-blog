@@ -1,5 +1,6 @@
 import { fetchPreviewData } from "@/app/lib/data";
 import { entries } from "@/app/lib/placeholder-data";
+import Link from "next/link";
 
 export default async function PreviewWrapper() {
     //const [recentData, topData] = await fetchPreviewData();
@@ -12,34 +13,52 @@ export default async function PreviewWrapper() {
     // )
     return (
         <>
-            <Preview title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
-            <Preview title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
+            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
+            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
         </>
     )
 }
 
 export function Preview({
+    id,
     title,
     date,
     content
 }:
     {
+        id: string,
         title: string,
         date: string,
         content: string,
     }) {
 
     return (
-        <div id="preview" className="grid border-4 mt-[1%] w-full h-full">
-            <div className="grid bg-white ml-[50%] w-[2%] h-[10%] md:w-[15%] md:h-[22%] md:justify-self-end">
-                <p className="border-2 mr-[1%] w-full bg-white text-black text-center text-xs md:text-lg">{date}</p>
+        <Link href={`/post/${id}`} className="">
+            <div id="preview" className="grid border-4 w-full h-full">
+                <div className="grid bg-white w-full h-[15%] 
+                sm:w-full
+                md:w-full
+                lg:justify-self-end lg:w-[15%]">
+                    <p className="border-2 
+                    w-full bg-white text-black text-center text-xs 
+                    md:text-lg
+                    ">
+                        {date}
+                    </p>
+
+                </div>
+                <div className="justify-self-start ml-[1%] w-[65%] h-[40%]">
+                    <p className="justify-self-start text-xl 
+                    sm:text-xl
+                    md:text-3xl">{title}</p>
+                </div>
+                <div className="justify-self-start h-[45%]">
+                    <p className="justify-self-start 
+                    ml-[1%] w-[80%] text-xs
+                    sm:text-sm 
+                    md:text-xl">{content.substring(0, 55)}...</p>
+                </div>
             </div>
-            <div className="justify-self-start ml-[1%] w-[65%] h-[40%]">
-                <p className="justify-self-start text-xl md:text-3xl">{title}</p>
-            </div>
-            <div>
-                <p className="justify-self-start ml-[1%] w-[80%] text-sm md:text-xl">{content}...</p>
-            </div>
-        </div>
+        </Link>
     );
 }
