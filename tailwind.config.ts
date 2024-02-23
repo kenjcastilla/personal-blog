@@ -16,9 +16,13 @@ const config: Config = {
       //   "gradient-conic":
       //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       // },
-        screens: {
-          'lg': '1150px'
-        }
+      screens: {
+        'lg': '1150px'
+      },
+      fontFamily: {
+        sans: ['var(--font-yantramanav)'],
+        mono: ['var(--font-cabin)']
+      }
     },
     darkMode: "class",
     // plugins: [nextui()]

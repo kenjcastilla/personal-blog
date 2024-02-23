@@ -3,16 +3,17 @@ import PreviewWrapper from "./ui/home/previews";
 export default function Page() {
   return (
     <div id="homeFull" className="grid justify-items-center w-full h-full">
-      <div id="homeTitleDiv" className="flex flex-col mt-[5%] items-center content-center w-[80%] h-[45%]
+      <div id="homeTopDivider" className="w-full h-[5%]"></div>
+      <div id="homeTitleDiv" className="flex flex-col items-center content-center w-[80%] h-[45%]
             sm:h-[40%]">
-        <div id="homeTitleHeaderDiv" className="flex-1 w-full h-[75%]">
-          <h1 id="homeTitleHeader" className="w-full bg-white text-center text-4xl text-black
+        <div id="homeTitleHeaderDiv" className="flex-1 w-full">
+          <h1 id="homeTitleHeader" className="flex-1 w-full h-fit bg-white text-center text-4xl text-black rounded-sm
             sm:text-4xl
             md:text-6xl">
             Kinetic Juice Cartons
           </h1>
         </div>
-        <div id="homeTitleSubheaderDiv" className="flex-1 w-full h-[20%]">
+        <div id="homeTitleSubheaderDiv" className="flex-1 w-full h-fit">
           <h2 id="homeTitleSubheader" className="text-center text-base w-full
             md:text-xl">
             A Blog by KenJC

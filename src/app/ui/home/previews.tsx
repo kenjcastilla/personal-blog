@@ -13,8 +13,8 @@ export default async function PreviewWrapper() {
     // )
     return (
         <>
-            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
-            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writtenDate} content={entries[0].content.substring(0, 85)} />
+            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writeDate} content={entries[0].content.substring(0, 85)} />
+            <Preview id={entries[0].id} title={entries[0].title} date={entries[0].writeDate} content={entries[0].content.substring(0, 85)} />
         </>
     )
 }
