@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { nextui } from "@nextui-org/react";
 
 const config: Config = {
   content: [
@@ -19,10 +18,6 @@ const config: Config = {
       screens: {
         'lg': '1150px'
       },
-      fontFamily: {
-        sans: ['var(--font-yantramanav)'],
-        mono: ['var(--font-cabin)']
-      }
     },
     darkMode: "class",
     // plugins: [nextui()]

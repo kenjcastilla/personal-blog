@@ -13,7 +13,7 @@ export default function Page() {
             Kinetic Juice Cartons
           </h1>
         </div>
-        <div id="homeTitleSubheaderDiv" className="flex-1 w-full h-fit">
+        <div id="homeTitleSubheaderDiv" className="flex-1 mt-1 w-full h-fit">
           <h2 id="homeTitleSubheader" className="text-center text-base w-full
             md:text-xl">
             A Blog by KenJC
