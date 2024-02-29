@@ -1,5 +1,5 @@
-import { fetchPreviewData } from "@/app/lib/data";
-import { entries } from "@/app/lib/placeholder-data";
+import { fetchPreviewData } from "@/app/lib/data/actions";
+import { entries } from "@/app/lib/data/placeholder-data";
 import Link from "next/link";
 
 export default async function PreviewWrapper() {

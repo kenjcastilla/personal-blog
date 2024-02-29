@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.18",
     "@headlessui/tailwindcss": "^0.2.0",
     "@nextui-org/react": "^2.2.9",
+    "@supabase/supabase-js": "^2.39.7",
     "@vercel/postgres": "^0.7.2",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.5",

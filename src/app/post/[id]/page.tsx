@@ -1,5 +1,5 @@
-import { fetchPostData } from "@/app/lib/data";
-import { entries } from "@/app/lib/placeholder-data";
+import { fetchPostData } from "@/app/lib/data/actions";
+import { entries } from "@/app/lib/data/placeholder-data";
 import parse from 'html-react-parser';
 import './styles.css'
 
