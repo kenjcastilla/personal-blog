@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { cabin, coda, yantramanav, istok, tenor_sans } from "./ui/fonts";
 // import { Yantramanav } from "next/font/google";
 import "./globals.css";
-import NavLinks from "./ui/nav-links";
 import NavMenu from "./ui/nav-menu";
 
 
