@@ -16,7 +16,7 @@ export default function Page() {
         <div id="homeTitleSubheaderDiv" className="flex-1 mt-1 w-full h-fit">
           <h2 id="homeTitleSubheader" className="text-center text-base w-full
             md:text-xl
-            dark:text-white">
+            ">
             A Blog by KenJC
           </h2>
         </div>

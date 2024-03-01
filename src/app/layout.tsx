@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { cabin, coda, yantramanav, istok, tenor_sans } from "./ui/fonts";
-// import { Yantramanav } from "next/font/google";
 import "./globals.css";
 import NavMenu from "./ui/nav-menu";
 
@@ -19,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={istok.className}>
+    <html lang="en" className={`${istok.className} text-black dark:text-white`}>
       <div className="fixed flex flex-col w-screen h-screen">
         <NavMenu />
         <main id="mainView" className="w-full h-full">
