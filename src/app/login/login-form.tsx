@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { User } from '@supabase/auth-helpers-nextjs';
 import type { Database } from '../lib/data/definitions';
 
-export default function LoginForm({ user }: { user: User | null}) {
+export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
@@ -20,7 +20,6 @@ export default function LoginForm({ user }: { user: User | null}) {
       password,
     });
     await supabase.auth.getUser().then(({ data }) => {
-      console.log(`Id of session user: ${data.user?.id} vs ${process.env.NEXT_PUBLIC_SUPABASE_AUTHENTICATED_ID}`);
       if (data.user?.id === process.env.NEXT_PUBLIC_SUPABASE_AUTHENTICATED_ID) {
         const redirectUrl: string = searchParams.get('from')?.toString()!;
         console.log("SESSION INITIATED");

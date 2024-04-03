@@ -1,8 +1,4 @@
-'use client';
-
 import { PublishPostForm } from "../lib/publish-post/publish-form";
-
-require('dotenv');
 
 export default async function PublishPost() {
     console.log('In PublishPost()...');

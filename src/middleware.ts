@@ -13,14 +13,13 @@ export async function middleware(req: NextRequest) {
 
     if (user?.role !== 'authenticated') {
         console.log('No authenticated user detected w/ middleware. Redirecting to Login...');
-        // console.log(req.cookies.get('redirectUrl')?.value);
         const loginUrl = new URL('/login', req.url);
         loginUrl.searchParams.set('from', req.nextUrl.pathname);
         const response = NextResponse.redirect(new URL(loginUrl));
         return response;
     }
 
-    console.log('User detected. Proceeding to requested page...')
+    console.log('User detected. Proceeding to requested page...');
     return res;
 }
 
