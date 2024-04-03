@@ -6,33 +6,119 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
-      Posts: {
+      comments: {
         Row: {
+          content: string | null
+          created_at: string
+          id: number
+          post_id: number
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: number
+          post_id: number
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: number
+          post_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_comments_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      posts: {
+        Row: {
+          category: Database["public"]["Enums"]["category"] | null
           content: string | null
           id: number
           interaction: number | null
-          publish_date: string | null
+          publish_date: string
           title: string
           write_date: string | null
         }
         Insert: {
+          category?: Database["public"]["Enums"]["category"] | null
           content?: string | null
           id?: number
           interaction?: number | null
-          publish_date?: string | null
+          publish_date?: string
           title: string
           write_date?: string | null
         }
         Update: {
+          category?: Database["public"]["Enums"]["category"] | null
           content?: string | null
           id?: number
           interaction?: number | null
-          publish_date?: string | null
+          publish_date?: string
           title?: string
           write_date?: string | null
+        }
+        Relationships: []
+      }
+      tag_post: {
+        Row: {
+          created_at: string
+          id: number
+          post_id: number
+          tag_id: number
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          post_id: number
+          tag_id: number
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          post_id?: number
+          tag_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_tag_post_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_tag_post_tag_id_fkey"
+            columns: ["tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      tags: {
+        Row: {
+          created_at: string
+          id: number
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string | null
         }
         Relationships: []
       }
@@ -44,7 +130,7 @@ export interface Database {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      category: "intellection" | "music" | "global" | "miscellaneous"
     }
     CompositeTypes: {
       [_ in never]: never

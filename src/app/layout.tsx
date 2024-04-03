@@ -19,12 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${istok.className} text-black dark:text-white`}>
-      <div className="fixed flex flex-col w-screen h-screen">
-        <NavMenu />
-        <main id="mainView" className="w-full h-full">
-          {children}
-        </main>
-      </div>
+      <body>
+        <div className="fixed flex flex-col w-screen h-screen text-black dark:text-white">
+          <NavMenu />
+          <main id="mainView" className="w-full h-full">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }

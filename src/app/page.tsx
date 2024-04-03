@@ -1,6 +1,53 @@
-import PreviewWrapper from "./ui/home/previews";
+import HomePreviewsWrapper from "./ui/home/previews";
+import { supabase } from "./lib/data/client";
+import { notFound } from "next/navigation";
 
-export default function Page() {
+async function getSupaData() {
+  const postIds = [0, 0];
+  const { data: supaPostsData } = await supabase
+    .from(`posts`)
+    .select(`id, title, publish_date`)
+
+  const { data: supaTagsData } = await supabase
+    .from('tag_post')
+    .select(`post_id, tags(name)`)
+    .in(`post_id`, postIds)
+
+  let tagsData = new Map();
+  postIds.forEach((postId) => {
+    tagsData.set(postId, []);
+  });
+
+  supaTagsData!.forEach((record) => {
+    tagsData.get(record.post_id).push(record!.tags!.name);
+  })
+
+  console.log('Posts Data after query:');
+  console.log(supaPostsData);
+  console.log('Tags Data after query: ');
+  console.log(tagsData);
+
+  if (!supaPostsData) {
+    return [[], []];
+  }
+
+  return [
+    supaPostsData as { id: number; title: string; publish_date: string; }[],
+    tagsData as Map<number, string[]>
+  ]
+}
+
+export default async function Page() {
+  const [posts, tags] = await getSupaData();
+  console.log('\nPosts Data in Page:');
+  console.log(posts);
+  console.log('Tags Data in Page: ');
+  console.log(tags);
+
+  if (!posts) {
+    notFound();
+  }
+
   return (
     <div id="homeFull" className="grid justify-items-center w-full h-full">
       <div id="homeTopDivider" className="w-full h-[5%]"></div>
@@ -10,7 +57,7 @@ export default function Page() {
           <h1 id="homeTitleHeader" className="flex-1 w-full h-fit bg-white text-center text-4xl text-black rounded-sm
             sm:text-4xl
             md:text-6xl">
-            Kinetic Juice Cartons
+            Unsolicited Verbosity
           </h1>
         </div>
         <div id="homeTitleSubheaderDiv" className="flex-1 mt-1 w-full h-fit">
@@ -21,14 +68,18 @@ export default function Page() {
           </h2>
         </div>
       </div>
-      <div id="previewsDiv" className="flex flex-col gap-y-8 justify-self-center content-center w-[60%] h-[50%]
+      <div id="homePreviewsDiv" className="flex flex-col gap-y-8 justify-self-center content-center w-[60%] h-[50%]
             sm:h-[65%]
             md:gap-y-5">
-        <PreviewWrapper />
+        <HomePreviewsWrapper
+          posts={posts as {
+            id: number;
+            title: string;
+            publish_date: string;
+          }[]}
+          tags={tags as Map<number, string[]>}
+        />
       </div>
     </div >
   );
 }
-
-{/* <div id="homeTitleDiv" className="grid justify-items-center w-[80%] h-[40%]
-            sm:h-[35%]"></div> */}

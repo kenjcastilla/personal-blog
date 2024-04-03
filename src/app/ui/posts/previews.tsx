@@ -46,7 +46,7 @@ function Preview({
     );
 }
 
-export default function HomePreviewsWrapper({
+export default function PostsPreviewsWrapper({
     posts,
     tags
 }: {

@@ -1,9 +1,15 @@
+import { supabase } from "./client";
 import { sql } from "@vercel/postgres";
 import { unstable_noStore as noStore } from "next/cache";
 
-export async function fetchPost() {
+export async function fetchPostDataSupa(postId: number) {
     noStore();
-    //TODO
+    const { data, error } = await supabase
+        .from('posts')
+        .select()
+        .eq('id', postId)
+
+    return data
 }
 
 export async function fetchPreviewData() {
@@ -79,4 +85,12 @@ export async function fetchPostData(id: string) {
     catch (error) {
         throw new Error('Failed to fetch data for posts previews from database.');
     }
+}
+
+export function toMyDateFormat(date: string) {
+    const myDate = new Date(date);
+    const day = myDate.getDay();
+    const month = myDate.getMonth() + 1;
+    const year = myDate.getFullYear();
+    
 }
