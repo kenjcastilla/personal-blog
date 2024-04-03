@@ -37,7 +37,7 @@ export function PublishPostForm() {
                 <input type="text" id="contentInput" name="contentInput" 
                     className="h-[5em]"/>
                 <div className="w-full h-[1em]"></div>
-                <label htmlFor="tagsInput">Enter Tags (ex. 'tag, tag, tag')</label>
+                <label htmlFor="tagsInput">Enter Tags (ex. &#39;tag, tag, tag&#39;)</label>
                 <input type="text" id="tagsInput" name="tagsInput" />
                 <div className="w-full h-[2em]"></div>
                 <SubmitButton />
