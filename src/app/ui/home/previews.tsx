@@ -1,19 +1,21 @@
 'use client';
 
+import { previewDateFormat } from "@/app/lib/date-formats";
 import Link from "next/link";
 
 function Preview({
    id,
    title,
-   date,
+   published_at,
    tags
 }:
    {
       id: number,
       title: string,
-      date: string,
+      published_at: string,
       tags: string,
    }) {
+   const date = previewDateFormat(published_at);
    return (
       <Link href={`/post/${id}`} className="">
          <div id="preview" className="grid border-4 w-full h-full">
@@ -63,7 +65,7 @@ export default function HomePreviewsWrapper({
             key={idx}
             id={post.id}
             title={post.title}
-            date={post.published_at}
+            published_at={post.published_at}
             tags={tags.get(post.id)!.join(', ')}
          />
       ))

@@ -1,10 +1,9 @@
 'use client';
 
-import React, { use } from "react";
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from 'clsx';
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 // Map of links to display in the top nav menu
 const links = [
@@ -12,15 +11,6 @@ const links = [
     { name: 'Posts', href: '/posts' },
     { name: 'Bio', href: '/bio' }
 ]
-
-async function isAuthenticated() {
-    const supabase = createClientComponentClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (user?.role === 'authenticated') {
-        return true;
-    }
-    return false;
-}
 
 export default function NavLinks() {
     const pathname = usePathname();

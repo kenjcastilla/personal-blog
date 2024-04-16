@@ -2,8 +2,7 @@ import parse from 'html-react-parser';
 import './styles.css';
 import { notFound } from "next/navigation";
 import { createServerComponentClient } from "@/app/lib/data/client";
-import { Database } from "@/app/lib/data/definitions";
-import { cookies } from "next/headers";
+import { postDateFormat } from '@/app/lib/date-formats';
 
 
 export default async function Post({ params }: { params: { id: string } }) {
@@ -45,7 +44,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                         md:flex md:flex-col-reverse md:w-[30%] md:h-full">
                     <h2 id="postSubtitle" className="text-xl w-full h-fit
                                 md:text-end">
-                        Published: {postData.published_at}<br />Written: {postData.write_date}
+                        Published: {postDateFormat(postData.published_at)}<br />Written: {postData.write_date}
                     </h2>
                 </div>
             </div>
