@@ -6,14 +6,14 @@ export async function middleware(req: NextRequest) {
     console.log('In middleware()...');
     const res = NextResponse.next();
 
-    // Create a Supabase client configured to use cookies
+    // Create a Supabase middleware client
     const supabase = createMiddlewareClient<Database>({ req, res });
 
     const { data: { user } } = await supabase.auth.getUser();
 
     if (user?.role !== 'authenticated') {
         console.log('No authenticated user detected w/ middleware. Redirecting to Login...');
-        const loginUrl = new URL('/login', req.url);
+        const loginUrl = new URL('/sign-in', req.url);
         loginUrl.searchParams.set('from', req.nextUrl.pathname);
         const response = NextResponse.redirect(new URL(loginUrl));
         return response;

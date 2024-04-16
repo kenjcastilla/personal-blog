@@ -1,8 +1,9 @@
 'use server';
 
+import { createServerComponentClient } from "../data/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { supabase } from "../data/client";
+
 
 export async function insertPostIntoSupabase(
   prevState: {
@@ -10,16 +11,17 @@ export async function insertPostIntoSupabase(
   },
   formData: FormData,
 ) {
+  const supabase = createServerComponentClient();
+
+  console.log('In Publish Post ACTIONS...');
   const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous"]);
   const schema = z.object({
     category: z.intersection(CategoryEnum, z.string()),
     content: z.string().min(1),
     title: z.string().min(1),
     write_date: z.string().length(10),
-    tags: z.array(z.string()).nonempty(),
+    tags: z.string().min(1),
   })
-  // type CategoryEnum = z.infer<typeof CategoryEnum>;
-
   const parse = schema.safeParse({
     category: formData.get("category"),
     content: formData.get("content"),
@@ -29,13 +31,20 @@ export async function insertPostIntoSupabase(
   })
 
   if (!parse.success) {
+    console.log('Parse failed...')
+    console.log(parse.error)
     return { message: "Failed to build post data" }
   }
 
+  console.log('Zod safeParse successful.')
+
   const data = parse.data;
-  const tagsDataArray = data.tags.map((tag) => {
+  const tagsDataString = data.tags.split(', ');
+  const tagsDataArray = tagsDataString.map((tag) => {
     return { name: tag }
-  })
+  });
+  console.log('tagsDataArray: ');
+  console.log(tagsDataArray);
 
   try {
     //Insert data into Supabase 'posts' and 'tags'
@@ -44,14 +53,22 @@ export async function insertPostIntoSupabase(
         category: data.category,
         content: data.content,
         title: data.title,
-        write_date: data.write_date,
+        write_date: data.write_date
       }
-    )
+    ).then((error) => {
+      console.log('Post insert error: ');
+      console.log(error);
+    });
     await supabase.from('tags').insert(tagsDataArray)
+    .then((error) => {
+      console.log('Tags insert error: ');
+      console.log(error);
+    })
 
     revalidatePath('/');
-    return { message: "Successfully inserted form data into Supabase tables 'posts' and 'tags'"}
+    return { message: "Successfully inserted form data into Supabase tables 'posts' and 'tags'" }
   } catch (e) {
+    console.log("Failed to insert form data into Supabase table 'Posts'")
     return { message: "Failed to insert form data into Supabase table 'Posts'" }
   }
 

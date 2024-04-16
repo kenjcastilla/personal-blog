@@ -6,8 +6,8 @@ import NavMenu from "./ui/nav-menu";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Kinetic Juice Cartons",
-    default: "Kinetic Juice Cartons"
+    template: "%s | Unsolicited Verbosity",
+    default: "Unsolicited Verbosity"
   },
   description: "finally created this blog and for what idk but here we are yay.",
 };

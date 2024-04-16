@@ -1,11 +1,14 @@
-import { supabase } from "./client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { createServerComponentClient } from "./client";
+import { Database } from "./definitions";
+import { cookies } from "next/headers";
 
 export default function PublishAuth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const supabase = createServerComponentClient();
 
   async function handleSignIn() {
     supabase.auth.signInWithPassword({

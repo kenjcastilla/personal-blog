@@ -1,16 +1,18 @@
-import { entries } from "@/app/lib/data/placeholder-data";
 import parse from 'html-react-parser';
-import './styles.css'
-import { supabase } from "@/app/lib/data/client";
+import './styles.css';
 import { notFound } from "next/navigation";
+import { createServerComponentClient } from "@/app/lib/data/client";
+import { Database } from "@/app/lib/data/definitions";
+import { cookies } from "next/headers";
 
 
 export default async function Post({ params }: { params: { id: string } }) {
+    const supabase = createServerComponentClient();
     const id = params.id;
 
     const { data: postData } = await supabase
         .from('posts')
-        .select(`id, title, content, publish_date, write_date`)
+        .select(`id, title, content, published_at, write_date`)
         .eq('id', id)
         .single()
 
@@ -43,7 +45,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                         md:flex md:flex-col-reverse md:w-[30%] md:h-full">
                     <h2 id="postSubtitle" className="text-xl w-full h-fit
                                 md:text-end">
-                        Published: {postData.publish_date}<br />Written: {postData.write_date}
+                        Published: {postData.published_at}<br />Written: {postData.write_date}
                     </h2>
                 </div>
             </div>

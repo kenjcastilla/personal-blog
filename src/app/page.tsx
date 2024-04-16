@@ -1,12 +1,13 @@
+import { createServerComponentClient } from "./lib/data/client";
 import HomePreviewsWrapper from "./ui/home/previews";
-import { supabase } from "./lib/data/client";
 import { notFound } from "next/navigation";
 
 async function getSupaData() {
+  const supabase = createServerComponentClient();
   const postIds = [0, 0];
   const { data: supaPostsData } = await supabase
     .from(`posts`)
-    .select(`id, title, publish_date`)
+    .select(`id, title, published_at`)
 
   const { data: supaTagsData } = await supabase
     .from('tag_post')
@@ -22,27 +23,18 @@ async function getSupaData() {
     tagsData.get(record.post_id).push(record!.tags!.name);
   })
 
-  console.log('Posts Data after query:');
-  console.log(supaPostsData);
-  console.log('Tags Data after query: ');
-  console.log(tagsData);
-
   if (!supaPostsData) {
     return [[], []];
   }
 
   return [
-    supaPostsData as { id: number; title: string; publish_date: string; }[],
+    supaPostsData as { id: number; title: string; published_at: string; }[],
     tagsData as Map<number, string[]>
   ]
 }
 
 export default async function Page() {
   const [posts, tags] = await getSupaData();
-  console.log('\nPosts Data in Page:');
-  console.log(posts);
-  console.log('Tags Data in Page: ');
-  console.log(tags);
 
   if (!posts) {
     notFound();
@@ -75,7 +67,7 @@ export default async function Page() {
           posts={posts as {
             id: number;
             title: string;
-            publish_date: string;
+            published_at: string;
           }[]}
           tags={tags as Map<number, string[]>}
         />

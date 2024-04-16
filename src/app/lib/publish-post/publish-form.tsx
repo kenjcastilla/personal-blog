@@ -2,48 +2,76 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import { insertPostIntoSupabase } from "./actions";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const initialState = { message: "" }
 
 function SubmitButton() {
     const { pending } = useFormStatus();
+    const [submitButtonText, setSubmitButtonText] = useState('Publish');
+    useEffect(() => {
+        if (pending) {
+            setSubmitButtonText('------');
+            setTimeout(() => {
+                setSubmitButtonText('Publish');
+            }, 3000);
+        }
+    }, [pending])
+    return <button id="publishFormSubmitButton" type="submit" aria-disabled={pending}
+        className="text-md md:w-[20%] md:h-[2.5em] md:border-2 md:rounded-lg">
+        {submitButtonText}
+    </button>
+}
 
-    return (<button type="submit" aria-disabled={pending}>
-        Publish
-    </button>)
+function CancelButton() {
+    const router = useRouter();
+    return <button id="cancelPublishPostButton" className="text-md md:w-[20%] md:h-[2.5em] md:border-2 md:rounded-lg" onClick={() => {
+        router.push('/sign-out');
+    }} >Cancel</button>
 }
 
 export function PublishPostForm() {
     const [state, formAction] = useFormState(insertPostIntoSupabase, initialState);
+    const date = new Date().toJSON();
 
+    useEffect(() => {
+        
+    })
     return (
-        <form action={formAction}>
-            <div className="flex flex-col w-full h-fit">
-                <label htmlFor="titleInput">Post Title</label>
-                <input type="text" id="titleInput" name="titleInput" />
+        <form action={formAction} className="overflow-auto-y w-full h-full">
+            <div className="flex flex-col w-full h-auto">
+                <label htmlFor="titleInput" className="">Title of Blog Post:</label>
+                <input type="text" placeholder="Blog Post Title" id="titleInput" name="title" className="px-1 text-white dark:text-black" />
                 <div className="w-full h-[1em]"></div>
                 <label htmlFor="dateInput">Date Written (YYYY-MM-DD):</label>
-                <input type="text" id="dateInput" name="dateInput" required />
+                <input type="text" id="dateInput" name="write_date" className="px-1 text-white dark:text-black" placeholder={`${date.slice(0, 10)}`} required />
                 <div className="w-full h-[1em]"></div>
-                <label htmlFor="categoryInput">Category</label>
-                <select id="categoryInput" name="categoryInput" required>
+                <label htmlFor="categoryInput">Category:</label>
+                <select id="categoryInput" name="category" required className="px-1 text-white dark:text-black">
                     <option value="intellection">Intellection</option>
                     <option value="music">Music</option>
                     <option value="global">Global</option>
                     <option value="miscellaneous">Miscellaneous</option>
                 </select>
                 <div className="w-full h-[1em]"></div>
-                <label htmlFor="contentInput">Write Post Content</label>
-                <input type="text" id="contentInput" name="contentInput" 
-                    className="h-[5em]"/>
+                <label htmlFor="contentInput">Write Post Content:</label>
+                <div className="w-auto h-fit">
+                    <textarea id="contentInput" rows={8} name="content" placeholder="Enter the blog post content here..."
+                        className="px-1 w-full h-full text-white dark:text-black" />
+                </div>
                 <div className="w-full h-[1em]"></div>
-                <label htmlFor="tagsInput">Enter Tags (ex. &#39;tag, tag, tag&#39;)</label>
-                <input type="text" id="tagsInput" name="tagsInput" />
-                <div className="w-full h-[2em]"></div>
-                <SubmitButton />
+                <label htmlFor="tagsInput">Enter Tags (separate by commas):</label>
+                <input type="text" id="tagsInput" name="tags" placeholder="tag1, tag2, tag3, tag4, tag5" className="h-[2em] px-1 text-white dark:text-black" />
+                <div className="w-full h-[4em]"></div>
+                <div className="w-full h-auto flex flex-row space-x-5">
+                    <SubmitButton />
+                    <CancelButton />
+                </div>
                 <p aria-live="polite" className="sr-only" role="status">
                     {state?.message}
                 </p>
+                <div className="w-full h-[3em]"></div>
             </div>
         </form>
     );

@@ -1,13 +1,10 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { Database } from "./definitions";
+import { createServerComponentClient as _createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { cache } from 'react';
 
-require('dotenv');
+import { Database } from './definitions';
 
-export const supabase = createServerComponentClient<Database>(
-    {cookies: cookies}
-);
-
-
-// process.env.SUPABASE_URL!,
-//     process.env.SUPABASE_ANON_KEY!
+export const createServerComponentClient = cache(() => {
+  const cookieStore = cookies();
+  return _createServerComponentClient<Database>({ cookies: () => cookieStore });
+});

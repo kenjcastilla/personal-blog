@@ -1,11 +1,15 @@
 import { notFound } from "next/navigation";
-import { supabase } from "../lib/data/client";
+// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "../lib/data/client";
 import PostsPreviewsWrapper from "../ui/home/previews";
+import { Database } from "../lib/data/definitions";
+import { cookies } from "next/headers";
 
 async function getPostsSupaData() {
+  const supabase = createServerComponentClient();
   const { data: supaPostsData } = await supabase
     .from(`posts`)
-    .select(`id, title, publish_date`)
+    .select(`id, title, published_at`)
 
   const { data: supaTagsData } = await supabase
     .from('tag_post')
@@ -13,9 +17,8 @@ async function getPostsSupaData() {
 
   const postIds = supaTagsData?.map((datum) => datum.post_id);
 
-
   let tagsData = new Map();
-  postIds?.forEach((postId) => {
+  postIds!.forEach((postId) => {
     tagsData.set(postId, []);
   });
 
@@ -23,19 +26,12 @@ async function getPostsSupaData() {
     tagsData.get(record.post_id).push(record!.tags!.name);
   })
 
-  console.log(tagsData);
-
-  console.log('Posts Data after query:');
-  console.log(supaPostsData);
-  console.log('Tags Data after query: ');
-  console.log(supaTagsData);
-
   if (!supaPostsData) {
     return [[], []];
   }
 
   return [
-    supaPostsData as { id: number; title: string; publish_date: string; }[],
+    supaPostsData as { id: number; title: string; published_at: string; }[],
     tagsData as Map<number, string[]>
   ]
 }
@@ -46,6 +42,7 @@ export default async function Posts() {
   if (!posts) {
     notFound();
   }
+
   return (
     <div id="postsFull" className="grid justify-items-center w-full h-full overflow-y-auto">
       <div id="homeTopDivider" className="w-full h-[5%]"></div>
@@ -67,7 +64,7 @@ export default async function Posts() {
           posts={posts as {
             id: number;
             title: string;
-            publish_date: string;
+            published_at: string;
           }[]}
           tags={tags as Map<number, string[]>}
         />
