@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormState, useFormStatus } from "react-dom";
-import { insertPostIntoSupabase } from "./actions";
+import { insertPostIntoSupabase } from "../../lib/publish-post/actions";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -35,9 +35,6 @@ export function PublishPostForm() {
     const [state, formAction] = useFormState(insertPostIntoSupabase, initialState);
     const date = new Date().toJSON();
 
-    useEffect(() => {
-        
-    })
     return (
         <form action={formAction} className="overflow-auto-y w-full h-full">
             <div className="flex flex-col w-full h-auto">

@@ -4,10 +4,13 @@ import { notFound } from "next/navigation";
 
 async function getSupaData() {
   const supabase = createServerComponentClient();
-  const postIds = [0, 0];
+
   const { data: supaPostsData } = await supabase
     .from(`posts`)
     .select(`id, title, published_at`)
+    .eq(`featured`, true)
+
+  const postIds = supaPostsData!.map(post => post.id);
 
   const { data: supaTagsData } = await supabase
     .from('tag_post')

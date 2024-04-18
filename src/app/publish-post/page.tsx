@@ -1,4 +1,4 @@
-import { PublishPostForm } from "../lib/publish-post/publish-form";
+import { PublishPostForm } from "../ui/publish-post/publish-form";
 
 export default function PublishPost() {
    

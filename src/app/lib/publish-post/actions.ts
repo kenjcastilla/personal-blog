@@ -13,7 +13,7 @@ export async function insertPostIntoSupabase(
 ) {
   const supabase = createServerComponentClient();
 
-  console.log('In Publish Post ACTIONS...');
+  // Use Zod to validate formData
   const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous"]);
   const schema = z.object({
     category: z.intersection(CategoryEnum, z.string()),
@@ -43,11 +43,9 @@ export async function insertPostIntoSupabase(
   const tagsDataArray = tagsDataString.map((tag) => {
     return { name: tag }
   });
-  console.log('tagsDataArray: ');
-  console.log(tagsDataArray);
 
   try {
-    //Insert data into Supabase 'posts' and 'tags'
+    // Insert data into Supabase tables 'posts' and 'tags'
     await supabase.from('posts').insert(
       {
         category: data.category,
@@ -60,16 +58,17 @@ export async function insertPostIntoSupabase(
       console.log(error);
     });
     await supabase.from('tags').insert(tagsDataArray)
-    .then((error) => {
-      console.log('Tags insert error: ');
-      console.log(error);
-    })
+      .then((error) => {
+        console.log('Tags insert error: ');
+        console.log(error);
+      })
 
     revalidatePath('/');
-    return { message: "Successfully inserted form data into Supabase tables 'posts' and 'tags'" }
-  } catch (e) {
-    console.log("Failed to insert form data into Supabase table 'Posts'")
-    return { message: "Failed to insert form data into Supabase table 'Posts'" }
+    return { message: "Successfully inserted form data into Supabase tables 'posts' and 'tags'" };
+  }
+  catch (e) {
+    console.log("Failed to insert form data into Supabase table 'Posts'");
+    return { message: "Failed to insert form data into Supabase table 'Posts'" };
   }
 
 }

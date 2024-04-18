@@ -12,6 +12,7 @@ const links = [
     { name: 'Bio', href: '/bio' }
 ]
 
+// Returns Link elements as a React fragment
 export default function NavLinks() {
     const pathname = usePathname();
 

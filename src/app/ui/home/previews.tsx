@@ -59,6 +59,9 @@ export default function HomePreviewsWrapper({
    tags: Map<number, string[]>;
 }) {
 
+   if (tags) {
+      console.log(posts);
+      console.log(tags);
    return <>{
       posts.map((post, idx) => (
          <Preview
@@ -69,5 +72,21 @@ export default function HomePreviewsWrapper({
             tags={tags.get(post.id)!.join(', ')}
          />
       ))
-   }</>
+   }
+   </>
+   }
+   else {
+      return <>{
+         posts.map((post, idx) => (
+            <Preview
+               key={idx}
+               id={post.id}
+               title={post.title}
+               published_at={post.published_at}
+               tags=""
+            />
+         ))
+      }
+      </>
+   }
 }

@@ -42,6 +42,7 @@ export type Database = {
         Row: {
           category: Database["public"]["Enums"]["category"] | null
           content: string | null
+          featured: boolean | null
           id: number
           interaction: number | null
           published_at: string
@@ -51,6 +52,7 @@ export type Database = {
         Insert: {
           category?: Database["public"]["Enums"]["category"] | null
           content?: string | null
+          featured?: boolean | null
           id?: number
           interaction?: number | null
           published_at?: string
@@ -60,6 +62,7 @@ export type Database = {
         Update: {
           category?: Database["public"]["Enums"]["category"] | null
           content?: string | null
+          featured?: boolean | null
           id?: number
           interaction?: number | null
           published_at?: string

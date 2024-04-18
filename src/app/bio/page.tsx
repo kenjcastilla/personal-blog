@@ -1,5 +1,7 @@
 export default function Bio() {
     return (
-        <p>BIO</p>
+        <div id="bioFullDiv" className="flex flex-col w-full h-full items-center justify-center">
+            <h1 className="w-full text-4xl text-center">In development...</h1>
+        </div>
     );
 }

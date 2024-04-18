@@ -12,7 +12,7 @@ export default function SignInForm() {
   const [failMessage, setFailMessage] = useState('');
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectUrl: string = searchParams.get('from')?.toString()!;
+  const redirectUrl: string = searchParams.get('from')?.toString()! || 'publish-post';
   const supabase = createClientComponentClient<Database>();
 
   async function handleSignIn() {
@@ -31,7 +31,6 @@ export default function SignInForm() {
             console.log("USER NOT AUTHENTICATED. SESSION NOT INITIATED.");
           }, 2000);
         }
-        router.push(redirectUrl);
       })
 
   }
@@ -41,7 +40,7 @@ export default function SignInForm() {
       setEmail('');
       setPassword('');
       console.clear();
-      setFailMessage("Authentication failed")
+      setFailMessage("Authentication failed");
     }
     setNeedClear(false);
   }, [email, password, needClear]);
