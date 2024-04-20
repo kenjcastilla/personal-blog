@@ -60,8 +60,6 @@ export default function HomePreviewsWrapper({
 }) {
 
    if (tags) {
-      console.log(posts);
-      console.log(tags);
    return <>{
       posts.map((post, idx) => (
          <Preview
