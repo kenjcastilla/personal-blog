@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import PostsPreviewsWrapper from "../ui/home/previews";
 import { fetchPostsSupaData } from "../lib/posts/actions";
-import { useEffect, useState } from "react";
 import Search from "../ui/posts/search";
 
 export default async function Posts({
@@ -34,9 +33,9 @@ export default async function Posts({
         </div>
         <Search />
         <div id="postsPreviewsDiv"
-          className="flex flex-col gap-y-8 content-start overflow-y-auto w-[70%] h-[60%]
-        md:gap-y-5 md:h-[55%]
-        lg:h-[58%]">
+          className="flex flex-col gap-y-8 content-start overflow-y-auto scroll-my-1 scrollbar-custom-dark snap-y w-[70%] h-[60%]
+        md:gap-y-5 md:h-[65%]
+        lg:h-[65%]">
           <PostsPreviewsWrapper
             posts={posts as {
               id: number;
@@ -46,7 +45,6 @@ export default async function Posts({
             tags={tags as Map<number, string[]>}
           />
         </div>
-        {/* <div className="w-full h-[1em]">l</div> */}
       </div>
     </div>
   );

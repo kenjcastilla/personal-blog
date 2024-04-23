@@ -49,7 +49,7 @@ export default async function Page() {
       <div id="homeTitleDiv" className="flex flex-col items-center content-center w-[80%] h-[45%]
             sm:h-[40%]">
         <div id="homeTitleHeaderDiv" className="flex-1 w-full">
-          <h1 id="homeTitleHeader" className="flex-1 w-full h-fit bg-white text-center text-4xl text-black rounded-sm
+          <h1 id="homeTitleHeader" className="flex-1 w-full h-fit bg-black dark:bg-custom_white text-center text-4xl text-custom_white dark:text-black rounded-sm
             sm:text-4xl
             md:text-6xl">
             Unsolicited Verbosity

@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${istok.className} text-black dark:text-white`}>
+    <html lang="en" className={`${istok.className} text-black dark:text-custom_white`}>
       <body>
-        <div className="fixed flex flex-col w-screen h-screen text-black dark:text-white">
+        <div className="fixed flex flex-col w-screen h-screen text-black dark:text-custom_white">
           <NavMenu />
           <main id="mainView" className="w-full h-full">
             {children}

@@ -13,6 +13,12 @@ const config: Config = {
       screens: {
         // 'lg': '1150px'
       },
+      colors: {
+        'custom_white': '#f7f7f7',
+        'prev_post_gray': '#3e3e3e',
+        'custom_gray': '#313235'
+
+      }
     },
     darkMode: "class",
   },

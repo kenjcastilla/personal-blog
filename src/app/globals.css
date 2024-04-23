@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 196, 197, 198;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -12,7 +12,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 25, 25, 25;
   }
 }
 
@@ -35,4 +35,18 @@ html {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  @apply bg-white w-[0.5em] rounded-sm
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  @apply bg-black rounded-sm
+}
+
+.scrollbar-custom-dark::-webkit-scrollbar {
+  @apply bg-white w-[0.5em] rounded-sm
+}
+.scrollbar-custom-dark::-webkit-scrollbar-thumb {
+  @apply bg-black rounded-sm
 }

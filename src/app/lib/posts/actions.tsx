@@ -56,7 +56,7 @@ export async function fetchPostsSupaData(query: string = '') {
    // Create array of post ids
    const postIds = postIdsData!.map(post => post.post_id);
 
-   // Get all tag--post pairs where post id is in the array of post ids
+   // Fetch all tag--post pairs where post id is in the array of post ids
    const { data: tagPostPairsData } = await supabase
       .from(`tag_post`)
       .select(`tag_id, post_id`)
@@ -81,7 +81,7 @@ export async function fetchPostsSupaData(query: string = '') {
       tagMap.set(tag.id, tag.name || '');
    })
 
-   // Create Map with key<number> post_id and value<string[]> array of respective tag_ids
+   // Create Map with key<number> post_id and value<number[]> array of respective tag_ids
    let tagsData = new Map<number, string[]>();
    postIds!.forEach((postId) => {
       tagsData.set(postId, []);
