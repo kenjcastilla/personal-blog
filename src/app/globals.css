@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 196, 197, 198;
+  --background-start-rgb: 229, 229, 229;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -12,19 +12,16 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 25, 25, 25;
+    --background-end-rgb: 16, 16, 16;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    height: 100%;
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  height: 100%;
 }
 
 html {
@@ -37,16 +34,22 @@ html {
   }
 }
 
-.scrollbar-custom::-webkit-scrollbar {
-  @apply bg-white w-[0.5em] rounded-sm
-}
-.scrollbar-custom::-webkit-scrollbar-thumb {
-  @apply bg-black rounded-sm
+#postContent > a {
+  @apply text-anchor_blue dark:text-anchor_blue-dark
 }
 
-.scrollbar-custom-dark::-webkit-scrollbar {
-  @apply bg-white w-[0.5em] rounded-sm
+.scrollbar-previews::-webkit-scrollbar {
+  @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em]
 }
-.scrollbar-custom-dark::-webkit-scrollbar-thumb {
-  @apply bg-black rounded-sm
+
+.scrollbar-previews::-webkit-scrollbar-thumb {
+  @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray dark:rounded-md dark:w-[1em]
+}
+
+.scrollbar-post::-webkit-scrollbar {
+  @apply bg-inherit w-[0.5em] rounded-sm dark:w-[0.4em]
+}
+
+.scrollbar-post::-webkit-scrollbar-thumb {
+  @apply bg-custom_black rounded-md dark:bg-custom_gray
 }

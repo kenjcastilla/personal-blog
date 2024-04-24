@@ -18,12 +18,12 @@ function Preview({
    const date = previewDateFormat(published_at);
    return (
       <Link href={`/post/${id}`} className="">
-         <div id="preview" className="grid w-full h-full hover:bg-custom_white dark:hover:bg-prev_post_gray hover:contrast-125 border-4 rounded-sm border-black dark:border-custom_white snap-start">
+         <div id="preview" className="grid w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 border-4 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
             <div id="previewDateDiv" className="grid bg-black dark:bg-custom_white w-full h-[15%] 
                 sm:w-full
                 md:w-full
                 lg:justify-self-end lg:w-[15%]">
-               <p id="previewDateText" className="border-2 border-black hover:border-custom dark:border-custom_white
+               <p id="previewDateText" className="border-2 border-black dark:border-custom_white
                     w-full bg-black dark:bg-custom_white text-custom_white dark:text-black text-center text-xs 
                     md:text-lg
                     ">

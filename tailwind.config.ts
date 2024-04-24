@@ -15,12 +15,15 @@ const config: Config = {
       },
       colors: {
         'custom_white': '#f7f7f7',
-        'prev_post_gray': '#3e3e3e',
-        'custom_gray': '#313235'
-
+        'custom_black': '#101010',
+        'prev_post_gray-scroll': '#3e3e3e',
+        'custom_gray': '#313235',
+        'link_hover_gray': '#757575',
+        'anchor_blue': '#3cb2eb',
+        'anchor_blue-dark': '#8bd1f3',
       }
     },
-    darkMode: "class",
+    darkMode: 'class',
   },
   plugins: [],
 };

@@ -33,7 +33,7 @@ export default async function Posts({
         </div>
         <Search />
         <div id="postsPreviewsDiv"
-          className="flex flex-col gap-y-8 content-start overflow-y-auto scroll-my-1 scrollbar-custom-dark snap-y w-[70%] h-[60%]
+          className="flex flex-col gap-y-8 content-start overflow-y-auto scroll-my-1 scroll-smooth scrollbar-previews w-[70%] h-[60%]
         md:gap-y-5 md:h-[65%]
         lg:h-[65%]">
           <PostsPreviewsWrapper

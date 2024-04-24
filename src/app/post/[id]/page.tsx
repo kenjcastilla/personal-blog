@@ -1,5 +1,4 @@
 import parse from 'html-react-parser';
-import './styles.css';
 import { notFound } from "next/navigation";
 import { createServerComponentClient } from "@/app/lib/data/client";
 import { postDateFormat } from '@/app/lib/date-formats';
@@ -20,8 +19,6 @@ export default async function Post({ params }: { params: { id: string } }) {
         .select(`tags(name)`)
         .eq(`post_id`, id)
 
-    console.log('JUST RETRIEVED THAT STUFF FROM SUPABASE YUH.')
-
     if (!postData) {
         notFound();
     }
@@ -29,7 +26,7 @@ export default async function Post({ params }: { params: { id: string } }) {
     const tags = tagsData?.map(item => item.tags?.name);
 
     return (
-        <div id="postFull" className="flex flex-col items-center w-full h-full overflow-y-auto ">
+        <div id="postFull" className="flex flex-col items-center w-full h-full overflow-y-auto scrollbar-post">
             <div id="postAboveHeaderSpace" className="w-full h-[5%] md:h-[2%]"></div>
             <div id="postHeaderDiv" className="flex flex-col p-2 w-[80%] h-[95%]
                     md:flex-row md:h-[35%]">
@@ -48,11 +45,11 @@ export default async function Post({ params }: { params: { id: string } }) {
                     </h2>
                 </div>
             </div>
-            <div id="postContentDiv" className="mb-1 w-[90%] h-0 text-md md:text-lg md:w-[80%] md:mt-[5%]">
-                <p id="content" className="w-full h-auto">
+            <div id="postContentDiv" className="mb-1 w-[90%] h-0 text-md md:text-lg md:w-[80%] md:mt-[5%] post-content-anchor">
+                <p id="postContent" className="w-full h-auto">
                     {parse(postData.content!)}
                 </p>
-                <p id="tags" className="text-center mt-[6em] w-[100%] h-fit">
+                <p id="postTags" className="text-center mt-[6em] w-[100%] h-fit">
                     Tags: {tags?.join(', ')}
                 </p>
                 <div id="bottomOfPage" className="w-[90%] md:h-5">&nbsp;</div>
