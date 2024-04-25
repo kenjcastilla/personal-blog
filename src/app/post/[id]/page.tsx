@@ -31,7 +31,7 @@ export default async function Post({ params }: { params: { id: string } }) {
 
     return (
         <div id="postFull" className="flex flex-col items-center w-full h-full overflow-y-auto scrollbar-post scroll-smooth">
-            <div id="postAboveHeaderSpace" className="w-full h-[5%] md:h-[2%]"></div>
+            <div id="postAboveHeaderSpace" className="w-full h-[20%] md:h-[2%]"></div>
             <div id="postHeaderDiv" className="flex flex-col p-2 w-[80%] h-[95%] justify-self-center
                     md:flex-row md:h-[35%]">
                 <div id="postTitleHeaderDiv" className="w-full
