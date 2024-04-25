@@ -17,10 +17,15 @@ const config: Config = {
         'custom_white': '#f7f7f7',
         'custom_black': '#101010',
         'prev_post_gray-scroll': '#3e3e3e',
-        'custom_gray': '#313235',
+        'post_gray-scroll': '#545454',
+        'custom_gray-dark': '#313235',
         'link_hover_gray': '#757575',
         'anchor_blue': '#3cb2eb',
         'anchor_blue-dark': '#8bd1f3',
+      },
+      transitionDuration: {
+        '1500': '1500ms',
+        '2000': '2000ms',
       }
     },
     darkMode: 'class',

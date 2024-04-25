@@ -9,7 +9,7 @@ import clsx from 'clsx';
 const links = [
     { name: 'Home', href: '/' },
     { name: 'Posts', href: '/posts' },
-    { name: 'Bio', href: '/bio' }
+    { name: 'Quote', href: '/quote' }
 ]
 
 // Returns Link elements as a React fragment
@@ -24,7 +24,7 @@ export default function NavLinks() {
                         key={link.name}
                         href={link.href}
                         className={
-                            clsx("flex flex-row h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-md font-medium hover:bg-link_hover_gray dark:hover:bg-custom_gray md:flex-none md:justify-start md:p-2 md:px-3 md:text-md",
+                            clsx("flex flex-row h-[32px] md:h-[48px] grow items-center justify-center gap-2 rounded-lg md:rounded-md p-3 text-sm md:text-md hover:bg-link_hover_gray dark:hover:bg-custom_gray md:flex-none md:justify-start md:p-2 md:px-3 md:text-md",
                                 { "bg-custom_black text-custom_white hover:bg-black dark:bg-custom_white dark:text-custom_black dark:hover:bg-custom_white": pathname === link.href, })
                         }
                     >

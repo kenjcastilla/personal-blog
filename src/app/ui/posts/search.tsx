@@ -19,7 +19,7 @@ export default function Search() {
    }, 300);
 
    return (
-      <div id="postsSearchDiv" className="flex flex-col content-center justify-center w-[80%] h-[2em] sm:w-[75%] md:w-[70%] lg:w-[60%]">
+      <div id="postsSearchDiv" className="flex flex-col content-center justify-center w-[68%] h-[2em] sm:w-[75%] md:w-[70%] lg:w-[60%]">
          <input id="postsSearchInput"
             placeholder="Filter posts by tag..."
             onChange={(e) => handleSearch(e.target.value)}

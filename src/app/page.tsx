@@ -63,7 +63,7 @@ export default async function Page() {
           </h2>
         </div>
       </div>
-      <div id="homePreviewsDiv" className="flex flex-col gap-y-8 justify-self-center content-center w-[60%] h-[50%]
+      <div id="homePreviewsDiv" className="flex flex-col gap-y-8 justify-self-center content-center w-[60%]
             sm:h-[65%]
             md:gap-y-5">
         <HomePreviewsWrapper

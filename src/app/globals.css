@@ -34,16 +34,16 @@ html {
   }
 }
 
-#postContent > a {
+.postContentLink {
   @apply text-anchor_blue dark:text-anchor_blue-dark
 }
 
 .scrollbar-previews::-webkit-scrollbar {
-  @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em]
+  @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em] 
 }
 
 .scrollbar-previews::-webkit-scrollbar-thumb {
-  @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray dark:rounded-md dark:w-[1em]
+  @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:w-[1em]
 }
 
 .scrollbar-post::-webkit-scrollbar {
@@ -51,5 +51,5 @@ html {
 }
 
 .scrollbar-post::-webkit-scrollbar-thumb {
-  @apply bg-custom_black rounded-md dark:bg-custom_gray
+  @apply bg-post_gray-scroll rounded-md dark:bg-custom_gray-dark
 }

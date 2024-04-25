@@ -31,8 +31,8 @@ export async function insertPostIntoSupabase(
   })
 
   if (!parse.success) {
-    console.log('Parse failed...')
-    console.log(parse.error)
+    // console.log('Parse failed...')
+    // console.log(parse.error)
     return { message: "Failed to build post data" }
   }
 
@@ -54,13 +54,13 @@ export async function insertPostIntoSupabase(
         write_date: data.write_date
       }
     ).then((error) => {
-      console.log('Post insert error: ');
-      console.log(error);
+      // console.log('Post insert error: ');
+      // console.log(error);
     });
     await supabase.from('tags').insert(tagsDataArray)
       .then((error) => {
-        console.log('Tags insert error: ');
-        console.log(error);
+        // console.log('Tags insert error: ');
+        // console.log(error);
       })
 
     revalidatePath('/');

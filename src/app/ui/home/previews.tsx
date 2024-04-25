@@ -16,6 +16,7 @@ function Preview({
       tags: string,
    }) {
    const date = previewDateFormat(published_at);
+   
    return (
       <Link href={`/post/${id}`} className="">
          <div id="preview" className="grid w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 border-4 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
