@@ -12,6 +12,7 @@ export default function Quote() {
     useEffect(() => {
         handleLoad();
     })
+
     return (
             <div id="quoteFullDiv" className="flex flex-col w-full h-full space-y-[5em] items-center justify-center">
                 <div id="quoteContentDiv" className="flex flex-col w-[80%] text-center">

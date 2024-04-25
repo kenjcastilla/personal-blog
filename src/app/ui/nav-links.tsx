@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import parse from 'html-react-parser';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from 'clsx';
@@ -9,7 +10,7 @@ import clsx from 'clsx';
 const links = [
     { name: 'Home', href: '/' },
     { name: 'Posts', href: '/posts' },
-    { name: 'Quote', href: '/quote' }
+    { name: '&#10077; &nbsp; &#10078;', href: '/quote' }
 ]
 
 // Returns Link elements as a React fragment
@@ -28,7 +29,7 @@ export default function NavLinks() {
                                 { "bg-custom_black text-custom_white hover:bg-black dark:bg-custom_white dark:text-custom_black dark:hover:bg-custom_white": pathname === link.href, })
                         }
                     >
-                        <p className="md:block">{link.name}</p>
+                        <p className="md:block">{parse(link.name)}</p>
                     </Link>
                 )
             })}
