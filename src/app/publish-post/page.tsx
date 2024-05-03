@@ -1,6 +1,6 @@
 import { PublishPostForm } from "../ui/publish-post/publish-form";
 
-export default function PublishPost() {
+export default function Page() {
    
    return (
       <>

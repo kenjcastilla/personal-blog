@@ -3,7 +3,7 @@ import PostsPreviewsWrapper from "../ui/home/previews";
 import { fetchPostsSupaData } from "../lib/posts/actions";
 import Search from "../ui/posts/search";
 
-export default async function Posts({
+export default async function Page({
   searchParams,
 }: {
   searchParams?: {

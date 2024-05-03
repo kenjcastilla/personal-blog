@@ -71,6 +71,30 @@ export type Database = {
         }
         Relationships: []
       }
+      quotes: {
+        Row: {
+          author: string | null
+          created_at: string
+          id: number
+          quote: string | null
+          work: string | null
+        }
+        Insert: {
+          author?: string | null
+          created_at?: string
+          id?: number
+          quote?: string | null
+          work?: string | null
+        }
+        Update: {
+          author?: string | null
+          created_at?: string
+          id?: number
+          quote?: string | null
+          work?: string | null
+        }
+        Relationships: []
+      }
       tag_post: {
         Row: {
           created_at: string
