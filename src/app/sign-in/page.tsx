@@ -16,6 +16,5 @@ export default function Page() {
                 </Suspense>
             </div>
         </div>
-
     )
 }
