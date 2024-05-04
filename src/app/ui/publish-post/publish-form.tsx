@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormState, useFormStatus } from "react-dom";
-import { insertPostIntoSupabase } from "../../lib/publish-post/actions";
+import { insertPostIntoSupabase } from "../../lib/publish-post/functions";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
