@@ -14,7 +14,7 @@ export async function insertPostIntoSupabase(
   const supabase = createServerComponentClient();
 
   // Use Zod to validate formData
-  const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous"]);
+  const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous", "curation"]);
   const schema = z.object({
     category: z.intersection(CategoryEnum, z.string()),
     content: z.string().min(1),

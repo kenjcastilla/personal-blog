@@ -166,7 +166,7 @@ export type Database = {
       }
     }
     Enums: {
-      category: "intellection" | "music" | "global" | "miscellaneous"
+      category: "intellection" | "music" | "global" | "miscellaneous" | "curation"
     }
     CompositeTypes: {
       [_ in never]: never

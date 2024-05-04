@@ -48,7 +48,7 @@ export default function SignInForm() {
   return (
     <>
       <input
-        className="h-[2em] px-1 text-white dark:text-black"
+        className="h-[2em] px-1 text-black dark:text-white border-2 border-custom_black rounded-md"
         type="email"
         name="email"
         placeholder="email@email.xyz"
@@ -56,7 +56,7 @@ export default function SignInForm() {
         value={email} />
       <div className="w-full h-[1em]"></div>
       <input
-        className="h-[2em] px-1 text-white dark:text-black"
+        className="h-[2em] px-1 text-black dark:text-white border-2 border-custom_black rounded-md"
         type="password"
         name="password"
         placeholder="passw0rd"
@@ -66,7 +66,7 @@ export default function SignInForm() {
       <div className="w-full h-[1em]"></div>
       <p className="text-lg text-rose-500">{failMessage}</p>
       <div className="w-full h-[3em]"></div>
-      <button onClick={handleSignIn} className="self-center text-md md:w-[20%] md:h-[2.5em] md:border-2 md:rounded-lg">Sign In</button>
+      <button onClick={handleSignIn} className="self-center text-md md:w-[20%] md:h-[2.5em] border-2 border-custom_black rounded-lg">Sign In</button>
     </>
   );
 }
