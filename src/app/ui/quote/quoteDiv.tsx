@@ -29,7 +29,7 @@ export default function QuoteDiv({
                <q>{quote.quote}</q>
             </p>
             <br />
-            <p id="quoteSource" className={`text-lg md:text-2xl lg:text-2xltransition-opacity duration-1500 ease-in delay-1000 ${loaded ? "opacity-100" : "opacity-0"}`}>-{quote.author!}, {quote.work!}</p>
+            <p id="quoteSource" className={`text-lg md:text-2xl lg:text-2xl transition-opacity duration-1500 ease-in delay-1000 ${loaded ? "opacity-100" : "opacity-0"}`}>-{quote.author!}, {quote.work!}</p>
          </div>
          <div className="w-full h-[2em] sm:h-[3em] md:h-[6em]"></div>
       </div>

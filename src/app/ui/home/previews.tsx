@@ -1,5 +1,3 @@
-'use client';
-
 import { previewDateFormat } from "@/app/lib/date-formats";
 import Link from "next/link";
 
@@ -14,9 +12,10 @@ function Preview({
       title: string,
       published_at: string,
       tags: string,
-   }) {
+   }
+) {
    const date = previewDateFormat(published_at);
-   
+
    return (
       <Link href={`/post/${id}`} className="">
          <div id="preview" className="grid w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 border-4 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
@@ -61,18 +60,18 @@ export default function HomePreviewsWrapper({
 }) {
 
    if (tags) {
-   return <>{
-      posts.map((post, idx) => (
-         <Preview
-            key={idx}
-            id={post.id}
-            title={post.title}
-            published_at={post.published_at}
-            tags={tags.get(post.id)!.join(', ')}
-         />
-      ))
-   }
-   </>
+      return <>{
+         posts.map((post, idx) => (
+            <Preview
+               key={idx}
+               id={post.id}
+               title={post.title}
+               published_at={post.published_at}
+               tags={tags.get(post.id)!.join(', ')}
+            />
+         ))
+      }
+      </>
    }
    else {
       return <>{

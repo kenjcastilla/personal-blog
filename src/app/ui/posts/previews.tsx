@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { previewDateFormat } from "@/app/lib/date-formats";
 
 function Preview({
    id,
@@ -25,7 +26,7 @@ function Preview({
                     w-full bg-white text-black text-center text-xs 
                     md:text-lg
                     ">
-                  {date}
+                  {previewDateFormat(date)}
                </p>
 
             </div>

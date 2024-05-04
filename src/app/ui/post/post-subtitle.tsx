@@ -23,7 +23,7 @@ export default function PostSubtitle({ dates }: {
    return (
       <h2 id="postSubtitle" className={`w-full h-fit text-lg
                     md:text-sm md:text-end
-                    lg:text-xl transition-opacity duration-200 ease-in ${loaded ? "opacity-100" : "opacity-0"}`}>
+                    lg:text-xl transition-opacity duration-200 delay-100 ease-in ${loaded ? "opacity-100" : "opacity-0"}`}>
          Published: {postDateFormat(dates!.published_at || 'N/A')}<br />Written: {dates!.write_date || 'N/A'}
       </h2>
    )

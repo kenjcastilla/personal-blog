@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
 import QuoteDiv from "../ui/quote/quoteDiv";
-import getQuote from "../lib/quote/actions";
+import getQuote from "../lib/quote/functions";
 
 export const metadata: Metadata = {
    title: 'Weekly Quote',

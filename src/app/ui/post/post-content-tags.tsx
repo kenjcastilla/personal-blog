@@ -19,9 +19,10 @@ export default function PostContentTags(
    useEffect(() => {
       handleLoad();
    })
+   
    return (
       <>
-         <div id="postContent" className={`w-full h-auto transition-opacity duration-500 ease-in ${loaded ? "opacity-100" : "opacity-0"}`}>
+         <div id="postContent" className={`w-full h-auto transition-opacity duration-500 delay-200 ease-in ${loaded ? "opacity-100" : "opacity-0"}`}>
             <br />
             {parse(content!)}
             <p id="postTags" className="text-center mt-[6em] w-[100%] h-fit">

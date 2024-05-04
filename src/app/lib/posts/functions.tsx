@@ -1,6 +1,6 @@
 import { createServerComponentClient } from "../data/client";
 
-export async function fetchPostsSupaData(query: string = '') {
+export async function fetchPostsData(query: string = '') {
    const supabase = createServerComponentClient();
    console.log(`Query: ${query}`);
 
@@ -11,16 +11,16 @@ export async function fetchPostsSupaData(query: string = '') {
       .ilike(`name`, `%${query}%`)
 
    // Create array of tag ids
-   const matchedTagIds = matchedTagsData!.map(tag => tag.id);
+   const matchedTagIds = matchedTagsData?.map(tag => tag.id) || [];
 
    // Use array of tag ids to fetch respective post ids
    const { data: postIdsData } = await supabase
       .from(`tag_post`)
       .select(`post_id`)
-      .in(`tag_id`, matchedTagIds)
+      .in(`tag_id`, matchedTagIds!)
 
    // Create array of post ids
-   const postIds = postIdsData!.map(post => post.post_id);
+   const postIds = postIdsData?.map(post => post.post_id) || [];
 
    // Fetch all tag--post pairs where post id is in the array of post ids
    const { data: tagPostPairsData } = await supabase
@@ -29,7 +29,7 @@ export async function fetchPostsSupaData(query: string = '') {
       .in(`post_id`, postIds)
 
    // Create array of tag ids
-   const tagIds = tagPostPairsData!.map(record => record.tag_id);
+   const tagIds = tagPostPairsData?.map(record => record.tag_id) || [];
 
    // Use array of post ids to fetch all post data
    const { data: rawPostsData } = await supabase
@@ -43,7 +43,7 @@ export async function fetchPostsSupaData(query: string = '') {
       .in(`id`, tagIds)
 
    let tagMap = new Map<number, string>();
-   rawTagsData!.forEach((tag) => {
+   rawTagsData?.forEach((tag) => {
       tagMap.set(tag.id, tag.name || '');
    })
 
@@ -66,38 +66,3 @@ export async function fetchPostsSupaData(query: string = '') {
       tagsData as Map<number, string[]>,
    ]
 }
-
-
-// export async function getPostsSupaData(query: string | undefined) {
-//    if (query) {
-//       return await getFilteredPostsSupaData(query);
-//    }
-//    const supabase = createServerComponentClient();
-//    const { data: supaPostsData } = await supabase
-//       .from(`posts`)
-//       .select(`id, title, published_at`)
-
-//    const { data: supaTagsData } = await supabase
-//       .from('tag_post')
-//       .select(`post_id, tags(name)`)
-
-//    const postIds = supaTagsData?.map((datum) => datum.post_id);
-
-//    let tagsData = new Map();
-//    postIds!.forEach((postId) => {
-//       tagsData.set(postId, []);
-//    });
-
-//    supaTagsData!.forEach((record) => {
-//       tagsData.get(record.post_id).push(record!.tags!.name);
-//    })
-
-//    if (!supaPostsData) {
-//       return [[], []];
-//    }
-
-//    return [
-//       supaPostsData as { id: number; title: string; published_at: string; }[],
-//       tagsData as Map<number, string[]>
-//    ];
-// }
