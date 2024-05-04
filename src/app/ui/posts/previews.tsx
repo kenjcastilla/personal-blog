@@ -17,13 +17,13 @@ function Preview({
    }) {
    return (
       <Link href={`/post/${id}`} className="">
-         <div id="preview" className="grid border-4 w-full h-full">
-            <div className="grid bg-white w-full h-[15%] 
+         <div id="preview" className="grid border-4 w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 border-4 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
+            <div id="previewDateDiv" className="grid bg-black dark:bg-custom_white w-full h-[15%] 
                 sm:w-full
                 md:w-full
                 lg:justify-self-end lg:w-[15%]">
-               <p className="border-2 
-                    w-full bg-white text-black text-center text-xs 
+               <p className="border-2 border-black dark:border-custom_white
+                    w-full bg-black dark:bg-custom_white text-custom_white dark:text-black text-center text-xs 
                     md:text-lg
                     ">
                   {previewDateFormat(date)}
