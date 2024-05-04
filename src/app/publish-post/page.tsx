@@ -1,4 +1,9 @@
 import { PublishPostForm } from "../ui/publish-post/publish-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+   title: 'Publish',
+ }
 
 export default function Page() {
    
