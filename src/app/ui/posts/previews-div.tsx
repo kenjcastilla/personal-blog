@@ -31,7 +31,7 @@ export default function PreviewsDiv({ posts, tags }: {
       <div id="postsPreviewsDiv" className={`flex flex-col gap-y-8 content-start overflow-y-auto scroll-my-1 scroll-smooth scrollbar-previews w-[70%] h-[60%] 
             sm:h-[65%]
             md:gap-y-5 
-            transition-opacity ease-in duration-300 delay-500 ${loaded ? "opacity-100" : "opacity-0"}`}>
+            transition-opacity ease-in duration-300 delay-300 ${loaded ? "opacity-100" : "opacity-0"}`}>
          <PostsPreviewsWrapper
             posts={posts}
             tags={tags}
