@@ -9,8 +9,6 @@ export default async function PostFull({ id }: { id: string }) {
    const content = await getPostContent(id);
    const tags = await getPostTags(id);
 
-   console.log(content);
-
    return (
       <div id="postFull" className="flex flex-col items-center w-full h-full overflow-y-auto scrollbar-post scroll-smooth">
          <div id="postAboveHeaderSpace" className="w-full h-[20%] md:h-[2%]"></div>

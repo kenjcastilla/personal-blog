@@ -32,13 +32,13 @@ function Preview({
 
             </div>
             <div id="previewTitleDiv" className="justify-self-start ml-[1%] w-[65%] h-[40%]">
-               <p id="previewTitleText" className="justify-self-start text-xl 
+               <p id="previewTitleText" className="justify-self-start text-xl text-truncate
                     sm:text-xl
                     md:text-3xl">{title}</p>
             </div>
             <div id="previewTagsDiv" className="justify-self-start w-[80%] h-[45%]">
                <p id="previewTagsText" className="justify-self-start 
-                    ml-[1%] w-[80%] text-xs
+                    ml-[1%] w-[80%] text-xs text-ellipsis
                     sm:text-sm 
                     md:text-xl">{tags}</p>
             </div>

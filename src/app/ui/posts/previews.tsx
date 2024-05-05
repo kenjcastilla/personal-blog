@@ -37,9 +37,9 @@ function Preview({
             </div>
             <div className="justify-self-start w-[80%] h-[45%]">
                <p className="justify-self-start 
-                    ml-[1%] w-[80%] text-xs
+                    ml-[1%] w-[80%] text-xs text-truncate
                     sm:text-sm 
-                    md:text-xl">{tags}</p>
+                    md:text-xl">no way, bro! no way", "how, Sway.", "when you say my name, put some respecc on it.</p>
             </div>
          </div>
       </Link>
