@@ -1,10 +1,13 @@
 import { Suspense } from "react";
-import HomeFull from "./ui/home/home-full";
+import HomeToLoad from "./ui/home/home-to-load";
+import Loading from "./loading";
 
 export default function Page() {
+
    return (
-      <Suspense>
-         <HomeFull />
+      <Suspense fallback={<Loading />}>
+         <HomeToLoad />
       </Suspense>
    )
+
 }

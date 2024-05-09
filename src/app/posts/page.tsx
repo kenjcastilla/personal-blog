@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import PostsFull from "../ui/posts/posts-full";
 import { Metadata } from "next";
+import PostsLoadingSkeleton from "../ui/posts/skeleton";
 
 export const metadata: Metadata = {
   title: 'Posts',
@@ -10,13 +11,13 @@ export default function Page({
   searchParams,
 }: {
   searchParams?: {
-     query?: string;
+    query?: string;
   };
 }) {
   const query = searchParams?.query?.trim();
   return (
-    <Suspense>
-      <PostsFull query={query || ''}/>
+    <Suspense fallback={<PostsLoadingSkeleton />}>
+      <PostsFull query={query || ''} />
     </Suspense>
   )
 }

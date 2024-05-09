@@ -1,9 +1,9 @@
 import { getHomeData } from "@/app/lib/home/functions";
 import HomeTitleHeading from "./home-title-heading";
-import PreviewsDiv from "./previews-div";
 import HomeSubtitleHeading from "./home-subtitle-heading";
+import PreviewsDiv from "./previews-div";
 
-export default async function HomeFull() {
+export default async function HomeToLoad() {
    const [posts, tags] = await getHomeData();
 
    return (
@@ -17,6 +17,7 @@ export default async function HomeFull() {
                <HomeSubtitleHeading />
             </div>
          </div>
+
          <PreviewsDiv
             posts={posts as {
                id: number;
@@ -24,6 +25,6 @@ export default async function HomeFull() {
                published_at: string;
             }[]}
             tags={tags as Map<number, string[]>} />
-      </div >
+      </div>
    )
 }

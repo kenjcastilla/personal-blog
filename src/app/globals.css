@@ -34,22 +34,33 @@ html {
   }
 }
 
-.postContentLink {
-  @apply text-anchor_blue dark:text-anchor_blue-dark
-}
+@layer components {
 
-.scrollbar-previews::-webkit-scrollbar {
-  @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em] 
-}
+  .skeleton1-styles {
+    @apply rounded-sm bg-skeleton1_light dark:bg-skeleton1_dark animate-pulse
+  }
+  
+  .skeleton2-styles {
+    @apply rounded-sm bg-skeleton2_light dark:bg-skeleton2_dark animate-pulse
+  }
 
-.scrollbar-previews::-webkit-scrollbar-thumb {
-  @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:w-[1em]
-}
-
-.scrollbar-post::-webkit-scrollbar {
-  @apply bg-inherit w-[0.5em] rounded-sm dark:w-[0.4em]
-}
-
-.scrollbar-post::-webkit-scrollbar-thumb {
-  @apply bg-post_gray-scroll rounded-md dark:bg-custom_gray-dark
+  .postContentLink {
+    @apply text-anchor_blue dark:text-anchor_blue_dark
+  }
+  
+  .scrollbar-previews::-webkit-scrollbar {
+    @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em] 
+  }
+  
+  .scrollbar-previews::-webkit-scrollbar-thumb {
+    @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:w-[1em]
+  }
+  
+  .scrollbar-post::-webkit-scrollbar {
+    @apply bg-inherit w-[0.5em] rounded-sm dark:w-[0.4em]
+  }
+  
+  .scrollbar-post::-webkit-scrollbar-thumb {
+    @apply bg-post_gray-scroll rounded-md dark:bg-custom_gray-dark
+  }
 }

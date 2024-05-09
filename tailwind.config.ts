@@ -21,7 +21,11 @@ const config: Config = {
         'custom_gray-dark': '#313235',
         'link_hover_gray': '#757575',
         'anchor_blue': '#3cb2eb',
-        'anchor_blue-dark': '#8bd1f3',
+        'anchor_blue_dark': '#8bd1f3',
+        'skeleton1_light': '#c6c6c6',
+        'skeleton2_light': '#e4e4e4',
+        'skeleton1_dark': '#404040',
+        'skeleton2_dark': '#545454'
       },
       transitionDuration: {
         '1500': '1500ms',
@@ -32,4 +36,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
