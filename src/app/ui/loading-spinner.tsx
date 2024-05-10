@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function PostSkeleton() {
+export default function LoadingSpinner() {
    return (
-      <div id="postFullSkeleton" className="flex items-center justify-center w-full h-full">
+      <div id="loadingSpinner" className="flex items-center justify-center w-full h-full">
          <div role="status" className="flex items-center justify-center">
             {/* Found this loading spinner "Default Spinner" at https://flowbite.com/docs/components/spinner/ and styled it to match my color scheme better. */}
             <svg aria-hidden="true" className="w-[25%] md:w-[20%] h-[25%] md:h-[20%] text-skeleton1_light animate-spin dark:text-skeleton1_dark fill-skeleton2_light dark:fill-skeleton2_dark" viewBox="0 0 100 101" fill="none">

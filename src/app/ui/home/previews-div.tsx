@@ -6,8 +6,8 @@ import { notFound } from "next/navigation";
 
 export default function PreviewsDiv({ posts, tags }: {
    posts: {
-      id: number; 
-      title: string; 
+      id: number;
+      title: string;
       published_at: string;
    }[];
    tags: Map<number, string[]>
@@ -28,8 +28,7 @@ export default function PreviewsDiv({ posts, tags }: {
    }
 
    return (
-      <div id="homePreviewsDiv" className={`flex flex-col gap-y-8 content-center justify-center w-[60%]
-            sm:h-[65%]
+      <div id="homePreviewsDiv" className={`flex flex-col gap-y-8 content-center justify-center w-[60%] h-[65%]
             md:gap-y-5 
             transition-opacity ease-in duration-300 delay-300 ${loaded ? "opacity-100" : "opacity-0"}`}>
          <HomePreviewsWrapper

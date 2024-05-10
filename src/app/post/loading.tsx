@@ -1,5 +1,5 @@
-import PostSkeleton from "../ui/post/skeleton";
+import LoadingSpinner from "../ui/loading-spinner";
 
-export default function LoadingSkeleton() {
-   return <PostSkeleton />
+export default function Loading() {
+   return <LoadingSpinner />
 }

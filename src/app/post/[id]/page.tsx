@@ -1,8 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import PostFull from '@/app/ui/post/post-full';
-
-import LoadingSkeleton from '../loading';
+import Loading from '../loading';
 
 export const metadata: Metadata = {
    title: 'Post',
@@ -14,7 +13,7 @@ export default function Page(
    }
 ) {
    return (
-       <Suspense fallback={<LoadingSkeleton />}>
+       <Suspense fallback={<Loading />}>
            <PostFull id={params.id} />
        </Suspense>
    )

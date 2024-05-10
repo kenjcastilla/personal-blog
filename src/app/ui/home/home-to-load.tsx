@@ -17,7 +17,6 @@ export default async function HomeToLoad() {
                <HomeSubtitleHeading />
             </div>
          </div>
-
          <PreviewsDiv
             posts={posts as {
                id: number;
