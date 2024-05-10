@@ -37,4 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 # local testing files
-/src/app/lib/test-data
+/src/app/lib/test-data.ts
