@@ -48,43 +48,38 @@ function Preview({
 }
 
 export default function HomePreviewsWrapper({
-   posts,
+   post,
    tags
 }: {
-   posts: {
+   post: {
       id: number;
       title: string;
       published_at: string;
-   }[],
-   tags: Map<number, string[]>;
+   },
+   tags: string[];
 }) {
 
    if (tags) {
-      return <>{
-         posts.map((post, idx) => (
-            <Preview
-               key={idx}
-               id={post.id}
-               title={post.title}
-               published_at={post.published_at}
-               tags={tags.get(post.id)!.join(', ')}
-            />
-         ))
-      }
+      return <>
+         <Preview
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            published_at={post.published_at}
+            tags={tags!.join(', ')}
+         />
       </>
    }
    else {
-      return <>{
-         posts.map((post, idx) => (
-            <Preview
-               key={idx}
-               id={post.id}
-               title={post.title}
-               published_at={post.published_at}
-               tags=""
-            />
-         ))
-      }
+      return <>
+         <Preview
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            published_at={post.published_at}
+            tags=""
+         />
       </>
    }
 }
+

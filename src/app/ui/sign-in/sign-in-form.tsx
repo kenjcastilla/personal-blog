@@ -1,9 +1,10 @@
 'use client';
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/app/auth/client/browser-client';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import type { Database } from '../../lib/data/definitions';
+// import type { Database } from '../../lib/data/definitions';
 
 export default function SignInForm() {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export default function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl: string = searchParams.get('from')?.toString()! || 'publish-post';
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
 
   async function handleSignIn() {
     await supabase.auth.signInWithPassword({
@@ -48,7 +49,7 @@ export default function SignInForm() {
   return (
     <>
       <input
-        className="h-[2em] px-1 text-black dark:text-white border-2 border-custom_black rounded-md"
+        className="h-[2em] px-1 text-custom_black border-2 border-custom_black rounded-md"
         type="email"
         name="email"
         placeholder="email@email.xyz"
@@ -56,7 +57,7 @@ export default function SignInForm() {
         value={email} />
       <div className="w-full h-[1em]"></div>
       <input
-        className="h-[2em] px-1 text-black dark:text-white border-2 border-custom_black rounded-md"
+        className="h-[2em] px-1 text-custom_black border-2 border-custom_black rounded-md"
         type="password"
         name="password"
         placeholder="passw0rd"

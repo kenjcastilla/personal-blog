@@ -1,7 +1,8 @@
-import { createServerComponentClient } from "../data/client";
+// import { createServerComponentClient } from "../data/client";
+import { createClient } from "../../auth/client/server-client";
 
 export async function getPostTitle(id: string) {
-   const supabase = createServerComponentClient();
+   const supabase = createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`title`)
@@ -12,7 +13,7 @@ export async function getPostTitle(id: string) {
 }
 
 export async function getPostDates(id: string) {
-   const supabase = createServerComponentClient();
+   const supabase = createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`published_at, write_date`)
@@ -23,7 +24,7 @@ export async function getPostDates(id: string) {
 }
 
 export async function getPostContent(id: string) {
-   const supabase = createServerComponentClient();
+   const supabase = createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`content`)
@@ -34,13 +35,16 @@ export async function getPostContent(id: string) {
 }
 
 export async function getPostTags(id: string) {
-   const supabase = createServerComponentClient();
-   const { data: tagsData } = await supabase
-      .from(`tag_post`)
-      .select(`tags(name)`)
+   const supabase = createClient();
+   const { data: supaTagsData } = await supabase
+      .from('tag_post')
+      .select(`post_id, tags(name)`)
       .eq(`post_id`, id)
 
-   const tags = tagsData?.map(item => item.tags?.name);
+   let tags: any[] = [];
+   supaTagsData!.forEach((tag) => {
+      tags.push(JSON.parse(JSON.stringify(tag.tags)).name);
+   });
 
    return tags;
 }

@@ -1,11 +1,11 @@
 'use client';
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/app/lib/data/definitions";
+import { createClient } from "@/app/auth/client/browser-client";
+// import { Database } from "@/app/lib/data/definitions";
 import { useRouter } from "next/navigation";
 
 export default function SignOutButton() {
-   const supabase = createClientComponentClient<Database>();
+   const supabase = createClient();
    const router = useRouter();
 
    async function handleSignOut() {

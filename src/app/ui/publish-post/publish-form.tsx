@@ -32,13 +32,13 @@ export function PublishPostForm() {
         <form action={formAction} className="overflow-auto-y w-full h-full">
             <div className="flex flex-col w-full h-auto">
                 <label htmlFor="titleInput" className="">Title of Blog Post:</label>
-                <input type="text" placeholder="Blog Post Title" id="titleInput" name="title" className="px-1 text-custom_black dark:text-custom_white border-2 border-custom_black dark:border-custom_white rounded-md" />
+                <input type="text" placeholder="Blog Post Title" id="titleInput" name="title" className="px-1 text-custom_black border-2 border-custom_black dark:border-custom_white rounded-md" />
                 <div className="w-full h-[1em]"></div>
                 <label htmlFor="dateInput">Date Written (YYYY-MM-DD):</label>
-                <input type="text" id="dateInput" name="write_date" className="px-1 text-custom_black dark:text-custom_white border-2 border-custom_black dark:border-custom_white rounded-md" placeholder={`${date.slice(0, 10)}`} required />
+                <input type="text" id="dateInput" name="write_date" className="px-1 text-custom_black border-2 border-custom_black dark:border-custom_white rounded-md" placeholder={`${date.slice(0, 10)}`} required />
                 <div className="w-full h-[1em]"></div>
                 <label htmlFor="categoryInput">Category:</label>
-                <select id="categoryInput" name="category" required className="px-1 text-custom_black dark:text-custom_white border-2 border-custom_black dark:border-custom_white rounded-md">
+                <select id="categoryInput" name="category" required className="px-1 text-custom_black border-2 border-custom_black dark:border-custom_white rounded-md">
                     <option value="intellection">Intellection</option>
                     <option value="music">Music</option>
                     <option value="global">Global</option>
@@ -49,11 +49,11 @@ export function PublishPostForm() {
                 <label htmlFor="contentInput">Write Post Content:</label>
                 <div className="w-auto h-fit">
                     <textarea id="contentInput" rows={8} name="content" placeholder="Enter the blog post content here..."
-                        className="px-1 w-full h-full text-custom_black dark:text-custom_white border-2 border-custom_black dark:border-custom_white rounded-md" />
+                        className="px-1 w-full h-full text-custom_black border-2 border-custom_black dark:border-custom_white rounded-md" />
                 </div>
                 <div className="w-full h-[1em]"></div>
                 <label htmlFor="tagsInput">Enter Tags (separate by commas):</label>
-                <input type="text" id="tagsInput" name="tags" placeholder="tag1, tag2, tag3, tag4, tag5" className="h-[2em] px-1 text-custom_black dark:text-custom_white border-2 border-custom_black dark:border-custom_white rounded-md" />
+                <input type="text" id="tagsInput" name="tags" placeholder="tag1, tag2, tag3, tag4, tag5" className="h-[2em] px-1 text-custom_black border-2 border-custom_black dark:border-custom_white rounded-md" />
                 <div className="w-full h-[4em]"></div>
                 <div className="w-full h-auto flex flex-row space-x-5">
                     <SubmitButton />

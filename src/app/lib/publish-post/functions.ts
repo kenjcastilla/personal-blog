@@ -1,6 +1,6 @@
 'use server';
 
-import { createServerComponentClient } from "../data/client";
+import { createClient } from "../../auth/client/server-client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -11,7 +11,7 @@ export async function insertPostIntoSupabase(
   },
   formData: FormData,
 ) {
-  const supabase = createServerComponentClient();
+  const supabase = createClient();
 
   // Use Zod to validate formData
   const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous", "curation"]);
@@ -31,8 +31,6 @@ export async function insertPostIntoSupabase(
   })
 
   if (!parse.success) {
-    // console.log('Parse failed...')
-    // console.log(parse.error)
     return { message: "Failed to build post data" }
   }
 

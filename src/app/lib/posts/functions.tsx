@@ -1,7 +1,8 @@
-import { createServerComponentClient } from "../data/client";
+// import { createServerComponentClient } from "../data/client";
+import { createClient } from "../../auth/client/server-client";
 
 export async function fetchPostsData(query: string = '') {
-   const supabase = createServerComponentClient();
+   const supabase = createClient();
    console.log(`Query: ${query}`);
 
    // Fetch tag ids and names

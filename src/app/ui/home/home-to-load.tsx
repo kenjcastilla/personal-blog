@@ -18,12 +18,12 @@ export default async function HomeToLoad() {
             </div>
          </div>
          <PreviewsDiv
-            posts={posts as {
+            post={posts as {
                id: number;
                title: string;
                published_at: string;
-            }[]}
-            tags={tags as Map<number, string[]>} />
+            }}
+            tags={tags as string[]} />
       </div>
    )
 }

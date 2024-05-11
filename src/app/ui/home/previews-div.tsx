@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import HomePreviewsWrapper from "./previews";
 import { notFound } from "next/navigation";
 
-export default function PreviewsDiv({ posts, tags }: {
-   posts: {
+export default function PreviewsDiv({ post, tags }: {
+   post: {
       id: number;
       title: string;
       published_at: string;
-   }[];
-   tags: Map<number, string[]>
+   };
+   tags: string[]
 }
 ) {
    const [loaded, setLoaded] = useState(false);
@@ -23,7 +23,7 @@ export default function PreviewsDiv({ posts, tags }: {
       handleLoad();
    })
 
-   if (!posts) {
+   if (!post) {
       notFound();
    }
 
@@ -32,7 +32,7 @@ export default function PreviewsDiv({ posts, tags }: {
             md:gap-y-5 
             transition-opacity ease-in duration-300 delay-300 ${loaded ? "opacity-100" : "opacity-0"}`}>
          <HomePreviewsWrapper
-            posts={posts}
+            post={post}
             tags={tags}
          />
       </div>
