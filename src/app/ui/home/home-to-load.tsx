@@ -9,7 +9,7 @@ export default async function HomeToLoad() {
    return (
       <div id="homeFull" className="flex flex-col items-center justify-center w-full h-full">
          <div id="homeTitleDiv" className="flex flex-col justify-center md:justify-end w-[80%] h-[45%]
-            sm:h-[40%]">
+            sm:h-[40%] mt-[1em] md:mt-0">
             <div id="homeTitleHeaderDiv" className="flex justify-center w-full h-auto">
                <HomeTitleHeading />
             </div>
