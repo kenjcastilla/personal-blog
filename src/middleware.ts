@@ -1,14 +1,12 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from './app/auth/client/server-client';
 import { NextResponse, NextRequest } from 'next/server';
-import type { Database } from '@/app/lib/data/definitions';
 
 export async function middleware(req: NextRequest) {
     console.log('In middleware()...');
     const res = NextResponse.next();
 
     // Create a Supabase middleware client
-    const supabase = createMiddlewareClient<Database>({ req, res });
-
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (user?.role !== 'authenticated') {
