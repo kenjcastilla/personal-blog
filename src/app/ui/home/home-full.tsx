@@ -3,7 +3,7 @@ import HomeTitleHeading from "./home-title-heading";
 import HomeSubtitleHeading from "./home-subtitle-heading";
 import PreviewsDiv from "./previews-div";
 
-export default async function HomeToLoad() {
+export default async function HomeFull() {
    const [posts, tags] = await getHomeData();
 
    return (

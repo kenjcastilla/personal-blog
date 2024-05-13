@@ -1,10 +1,8 @@
-import { Suspense } from "react";
-import HomeToLoad from "./ui/home/home-to-load";
-// import Loading from "./loading";
+import HomeFull from "./ui/home/home-full";
 
 export default function Page() {
    return (
-      <HomeToLoad />
+      <HomeFull />
    )
 
 }
