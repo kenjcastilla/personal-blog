@@ -5,6 +5,7 @@ import PreviewsDiv from "./previews-div";
 
 export default async function HomeFull() {
    const [posts, tags] = await getHomeData();
+   const showPreview = Array.isArray(posts) ? false : true;
 
    return (
       <div id="homeFull" className="flex flex-col items-center justify-center w-full h-full">
@@ -17,13 +18,19 @@ export default async function HomeFull() {
                <HomeSubtitleHeading />
             </div>
          </div>
-         <PreviewsDiv
-            post={posts as {
-               id: number;
-               title: string;
-               published_at: string;
-            }}
-            tags={tags as string[]} />
+         {showPreview
+            ?
+            (<PreviewsDiv
+               post={posts as {
+                  id: number;
+                  title: string;
+                  published_at: string;
+               }}
+               tags={tags as string[]} />)
+            :
+            (<div id="homePreviewsDiv" className={`flex flex-col gap-y-8 content-center justify-center w-[60%] h-[40%]`}>
+            </div>)
+         }
       </div>
    )
 }
