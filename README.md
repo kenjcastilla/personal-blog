@@ -4,7 +4,7 @@ This is a blog written in TypeScript with NextJS. I learned TypeScript through t
 ## Key Features
 *Home*
 
-  * Shows the title of the blog and a featured blog post.
+  * Displays the title of the blog and a featured blog post.
 
 *Posts*
 
@@ -12,7 +12,7 @@ This is a blog written in TypeScript with NextJS. I learned TypeScript through t
 
 *" "*
 
-  * Displays a Quote of the Week. I might change to Quote of the Day. Or update bi-weekly.
+  * Currently displays the Quote of the Week. This might change to a bi-weekly or daily quote.
 
 ## Next Steps
 I plan to add a comment/question feature within the next month so that visitors can engage with me and the ideas I've presented. The feature will require the user to categorize their message as a question or a comment. I didn't originally plan to have people create accounts to engage with my posts. Therefore, the manifestation of this plan depends on whether I want to include accounts and more authentication involvement or just keep comments/questions anonymous.

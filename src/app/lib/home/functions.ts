@@ -9,7 +9,8 @@ export async function getHomeData() {
     .eq(`featured`, true)
     .single()
 
-  const postId = supaPostsData!.id || '0';
+  const postId = supaPostsData?.id || '';
+  console.log(postId);
 
   const { data: supaTagsData } = await supabase
     .from('tag_post')
