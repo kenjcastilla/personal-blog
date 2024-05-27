@@ -23,15 +23,10 @@ export default function PreviewsDiv({ posts, tags }: {
       handleLoad();
    })
 
-   if (!posts) {
-      notFound();
-   }
-
    return (
          <PostsPreviewsWrapper
             posts={posts}
             tags={tags}
          />
-      // </div>
    )
 }

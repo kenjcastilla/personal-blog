@@ -1,7 +1,6 @@
 'use client';
 
 import { createClient } from "@/app/auth/client/browser-client";
-// import { Database } from "@/app/lib/data/definitions";
 import { useRouter } from "next/navigation";
 
 export default function SignOutButton() {

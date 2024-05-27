@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import HomePreviewsWrapper from "./previews";
-import { notFound } from "next/navigation";
 
 export default function PreviewsDiv({ post, tags }: {
    post: {
@@ -15,9 +14,6 @@ export default function PreviewsDiv({ post, tags }: {
 ) {
    const [loaded, setLoaded] = useState(false);
 
-   // console.log('PreviewsDiv:')
-   // console.log(post);
-   // console.log(tags)
    function handleLoad() {
       setLoaded(true);
    }

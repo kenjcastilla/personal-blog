@@ -1,10 +1,8 @@
 'use client';
 
-// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { createClient } from '@/app/auth/client/browser-client';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-// import type { Database } from '../../lib/data/definitions';
 
 export default function SignInForm() {
   const [email, setEmail] = useState('');

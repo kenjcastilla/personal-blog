@@ -1,4 +1,3 @@
-// import { createServerComponentClient } from "../data/client";
 import { createClient } from "../../auth/client/server-client";
 
 export async function getPostTitle(id: string) {

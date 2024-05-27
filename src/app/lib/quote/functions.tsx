@@ -1,5 +1,4 @@
 import parse from 'html-react-parser';
-// import { createServerComponentClient } from "../data/client";
 import { createClient } from '../../auth/client/server-client';
 
 export default async function getQuote() {
