@@ -35,6 +35,7 @@ export async function fetchPostsData(query: string = '') {
       .from(`posts`)
       .select(`id, title, published_at`)
       .in(`id`, postIds)
+      .order(`published_at`, {ascending: false})
 
    const { data: rawTagsData } = await supabase
       .from(`tags`)

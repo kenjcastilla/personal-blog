@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import PostsPreviewsWrapper from "./previews";
-import { notFound } from "next/navigation";
 
 export default function PreviewsDiv({ posts, tags }: {
    posts: {
