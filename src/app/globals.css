@@ -46,11 +46,11 @@ html {
 
   
   .scrollbar-previews::-webkit-scrollbar {
-    @apply bg-inherit w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:w-[1em] 
+    @apply w-0 bg-inherit md:w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:md:w-[1em] 
   }
   
   .scrollbar-previews::-webkit-scrollbar-thumb {
-    @apply bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:w-[1em]
+    @apply w-0 bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:md:w-[1em]
   }
   
   .scrollbar-post::-webkit-scrollbar {
