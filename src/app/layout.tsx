@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {Analytics} from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react'
 import { cabin, coda, yantramanav, istok, tenor_sans } from "./ui/fonts";
 import "./globals.css";
 import NavMenu from "./ui/nav-menu";
@@ -25,6 +25,7 @@ export default function RootLayout({
           <NavMenu />
           <main id="mainView" className="w-full h-full">
             {children}
+            <Analytics />
           </main>
         </div>
       </body>
