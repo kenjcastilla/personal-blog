@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {Analytics} from '@vercel/analytics/react'
 import { cabin, coda, yantramanav, istok, tenor_sans } from "./ui/fonts";
 import "./globals.css";
 import NavMenu from "./ui/nav-menu";
