@@ -67,5 +67,5 @@ html {
 }
 
 .postContentHeading {
-  @apply text-xl md:text-2xl mb-[0.25em]
+  @apply text-xl md:text-2xl mb-[0.25em] text-custom_gray-dark dark:text-custom_lightgray
 }

@@ -24,7 +24,7 @@ export default async function PostFull({ id }: { id: string }) {
                <PostSubtitle dates={dates} />
             </div>
          </div>
-         <div id="postContentDiv" className="static mb-1 w-[90%] h-0 text-md md:text-lg md:w-[80%] md:mt-[5%] post-content-anchor">
+         <div id="postContentDiv" className="static mb-1 w-[90%] h-0 text-md md:text-lg md:w-[80%] md:mt-[5%]">
             <PostContentTags content={content} tags={tags} />
          </div>
          <div id="bottomOfPage" className="w-[90%] md:h-5">&nbsp;</div>

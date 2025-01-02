@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         'custom_white': '#f7f7f7',
         'custom_black': '#101010',
+        'custom_lightgray': '#dedede',
         'prev_post_gray-scroll': '#3e3e3e',
         'post_gray-scroll': '#545454',
         'custom_gray-dark': '#313235',
