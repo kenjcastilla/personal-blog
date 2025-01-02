@@ -65,3 +65,7 @@ html {
 .postContentLink {
   @apply text-anchor_blue dark:text-anchor_blue_dark
 }
+
+.postContentHeading {
+  @apply text-xl md:text-2xl mb-[0.25em]
+}
