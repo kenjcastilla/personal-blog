@@ -50,7 +50,7 @@ export default function SignInForm() {
         className="h-[2em] px-1 text-custom_black border-2 border-custom_black rounded-md"
         type="email"
         name="email"
-        placeholder="email@email.xyz"
+        placeholder="email@host.xyz"
         onChange={(e) => setEmail(e.target.value)}
         value={email} />
       <div className="w-full h-[1em]"></div>
