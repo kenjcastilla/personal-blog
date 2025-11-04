@@ -1,7 +1,7 @@
-import { createClient } from "../../auth/client/server-client";
+import { createClient } from "../../../utils/supabase/server-client";
 
 export async function getPostTitle(id: string) {
-   const supabase = createClient();
+   const supabase = await createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`title`)
@@ -12,7 +12,7 @@ export async function getPostTitle(id: string) {
 }
 
 export async function getPostDates(id: string) {
-   const supabase = createClient();
+   const supabase = await createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`published_at, write_date`)
@@ -23,7 +23,7 @@ export async function getPostDates(id: string) {
 }
 
 export async function getPostContent(id: string) {
-   const supabase = createClient();
+   const supabase = await createClient();
    const { data: postData } = await supabase
       .from('posts')
       .select(`content`)
@@ -34,7 +34,7 @@ export async function getPostContent(id: string) {
 }
 
 export async function getPostTags(id: string) {
-   const supabase = createClient();
+   const supabase = await createClient();
    const { data: supaTagsData } = await supabase
       .from('tag_post')
       .select(`post_id, tags(name)`)

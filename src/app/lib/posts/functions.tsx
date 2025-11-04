@@ -1,7 +1,7 @@
-import { createClient } from "../../auth/client/server-client";
+import { createClient } from "../../../utils/supabase/server-client";
 
 export async function fetchPostsData(query: string = '') {
-   const supabase = createClient();
+   const supabase = await createClient();
 
    // Fetch tag ids and names
    const { data: matchedTagsData } = await supabase

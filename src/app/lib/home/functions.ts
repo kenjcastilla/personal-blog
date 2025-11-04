@@ -1,7 +1,7 @@
-import { createClient } from "../../auth/client/server-client";
+import { createClient } from "../../../utils/supabase/server-client";
 
 export async function getHomeData() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: supaPostsData } = await supabase
     .from(`posts`)
