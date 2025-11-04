@@ -1,6 +1,6 @@
 'use server';
 
-import { createClient } from "../../auth/client/server-client";
+import { createClient } from "../../../utils/supabase/server-client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -11,7 +11,7 @@ export async function insertPostIntoSupabase(
   },
   formData: FormData,
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Use Zod to validate formData
   const CategoryEnum = z.enum(["intellection", "music", "global", "miscellaneous", "curation"]);

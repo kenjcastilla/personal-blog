@@ -1,8 +1,8 @@
 import parse from 'html-react-parser';
-import { createClient } from '../../auth/client/server-client';
+import { createClient } from '../../../utils/supabase/server-client';
 
 export default async function getQuote() {
-   const supabase = createClient();
+   const supabase = await createClient();
 
    const { data, error } = await supabase
       .from('quotes')

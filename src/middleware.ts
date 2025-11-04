@@ -1,4 +1,4 @@
-import { createClient } from './app/auth/client/server-client';
+import { createClient } from './utils/supabase/server-client';
 import { NextResponse, NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
@@ -6,7 +6,7 @@ export async function middleware(req: NextRequest) {
     const res = NextResponse.next();
 
     // Create a Supabase middleware client
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (user?.role !== 'authenticated') {
