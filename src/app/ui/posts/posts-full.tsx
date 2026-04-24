@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { fetchPostsData } from "@/app/lib/posts/functions";
+import { fetchPostsData } from "@app/lib/posts/functions";
 import PreviewsDiv from "./previews-div";
 
 export default async function PostsFull({ query }: { query: string }) {

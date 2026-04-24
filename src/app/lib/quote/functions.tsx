@@ -1,5 +1,5 @@
 import parse from 'html-react-parser';
-import { createClient } from '../../../utils/supabase/server-client';
+import { createClient } from '@utils/supabase/server-client';
 
 export default async function getQuote() {
    const supabase = await createClient();

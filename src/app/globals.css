@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -16,6 +14,25 @@
   }
 }
 
+@theme {
+  --color-custom_white: #f7f7f7;
+  --color-custom_black: #101010;
+  --color-custom_lightgray: #dedede;
+  --color-prev_post_gray-scroll: #3e3e3e;
+  --color-post_gray-scroll: #545454;
+  --color-custom_gray-dark: #313235;
+  --color-link_hover_gray: #757575;
+  --color-anchor_blue: #3cb2eb;
+  --color-anchor_blue_dark: #8bd1f3;
+  --color-skeleton1_light: #c6c6c6;
+  --color-skeleton1_dark: #404040;
+  --color-skeleton2_light: #e4e4e4;
+  --color-skeleton2_dark: #545454;
+
+  --transition-duration-1500: 1500ms;
+  --transition-duration-2000: 2000ms;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
@@ -28,39 +45,55 @@ html {
   height: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility components {
+  .skeleton1_light {
+    @apply bg-skeleton1_light
+  }
+
+  .skeleton1_dark {
+    @apply bg-skeleton1_dark
+  }
+
+  .skeleton2_light {
+    @apply bg-skeleton2_light
+  }
+
+  .skeleton2_dark {
+    @apply bg-skeleton2_dark
   }
 }
 
-@layer components {
+/* @layer components {
 
   .skeleton1-styles {
-    @apply rounded-sm bg-skeleton1_light dark:bg-skeleton1_dark animate-pulse
-  }
-  
-  .skeleton2-styles {
-    @apply rounded-sm bg-skeleton2_light dark:bg-skeleton2_dark animate-pulse
+    @apply rounded-sm skeleton1_light dark:skeleton1_dark animate-pulse
   }
 
-  
-  .scrollbar-previews::-webkit-scrollbar {
-    @apply w-0 bg-inherit md:w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:md:w-[1em] 
+  .skeleton2-styles {
+    @apply rounded-sm skeleton2_light dark:skeleton2_dark animate-pulse
   }
-  
+
+
+  .scrollbar-previews::-webkit-scrollbar {
+    @apply w-0 bg-inherit md:w-[0.5em] rounded-sm dark:bg-custom_black dark:rounded-md dark:md:w-[1em]
+  }
+
   .scrollbar-previews::-webkit-scrollbar-thumb {
     @apply w-0 bg-prev_post_gray-scroll rounded-sm dark:bg-custom_gray-dark dark:rounded-md dark:md:w-[1em]
   }
-  
+
   .scrollbar-post::-webkit-scrollbar {
     @apply bg-inherit w-[0.5em] rounded-sm dark:w-[0.4em]
   }
-  
+
   .scrollbar-post::-webkit-scrollbar-thumb {
     @apply bg-post_gray-scroll rounded-md dark:bg-custom_gray-dark
   }
-}
+} */
 
 .postContentLink {
   @apply text-anchor_blue dark:text-anchor_blue_dark

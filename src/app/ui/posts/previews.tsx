@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { previewDateFormat } from "@/app/lib/date-formats";
+import { previewDateFormat } from "@app/lib/date-formats";
 
 function Preview({
    id,
@@ -17,7 +17,7 @@ function Preview({
    }) {
    return (
       <Link href={`/post/${id}`} className="">
-         <div id="preview" className="grid border-4 w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 border-4 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
+         <div id="preview" className="grid border-4 w-full h-full hover:bg-white dark:hover:bg-prev_post_gray-scroll contrast-200 dark:hover:contrast-125 rounded-sm border-custom_black hover:border-custom_gray dark:hover:border-custom_white dark:border-custom_white">
             <div id="previewDateDiv" className="grid bg-black dark:bg-custom_white w-full h-[15%] 
                 sm:w-full
                 md:w-full
