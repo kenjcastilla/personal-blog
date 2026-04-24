@@ -1,4 +1,4 @@
-import { createClient } from "../../../utils/supabase/server-client";
+import { createClient } from "@utils/supabase/server-client";
 
 export async function getHomeData() {
   const supabase = await createClient();

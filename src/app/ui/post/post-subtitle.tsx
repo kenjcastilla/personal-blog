@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { postDateFormat } from "@/app/lib/date-formats";
+import { postDateFormat } from "@app/lib/date-formats";
 
 export default function PostSubtitle({ dates }: {
    dates: {

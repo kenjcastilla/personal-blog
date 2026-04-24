@@ -7,16 +7,17 @@ import LoadingSpinner from "../ui/loading-spinner";
 
 export const metadata: Metadata = {
   title: 'Posts',
-}
+};
 
-export default function Page({
+export default async function Page({
   searchParams,
 }: {
   searchParams?: {
     query?: string;
   };
 }) {
-  const query = searchParams?.query?.trim();
+  const params = await searchParams;
+  const query = params?.query?.trim();
   return (
     <div id="postsFull" className="grid justify-items-center items-center w-full h-full">
       <div className="flex flex-col items-center justify-start space-y-4 w-full h-full overflow-y-auto">
@@ -27,7 +28,9 @@ export default function Page({
             <PostsTitleHeading />
           </div>
         </div>
-        <Search />
+        <Suspense>
+          <Search />
+        </Suspense>
         <div id="postsPreviewsDiv" className={`flex flex-col gap-y-8 content-start overflow-y-auto scroll-my-1 scroll-smooth scrollbar-previews w-[70%] h-[60%] 
             sm:h-[65%]
             md:gap-y-5`}>
@@ -37,5 +40,5 @@ export default function Page({
         </div>
       </div>
     </div>
-  )
+  );
 }

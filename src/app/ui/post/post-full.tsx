@@ -1,7 +1,7 @@
 import PostTitle from './post-title';
 import PostSubtitle from './post-subtitle';
 import PostContentTags from './post-content-tags';
-import { getPostTitle, getPostDates, getPostContent, getPostTags } from '@/app/lib/post/functions';
+import { getPostTitle, getPostDates, getPostContent, getPostTags } from '@app/lib/post/functions';
 
 export default async function PostFull({ id }: { id: string }) {
    const title = await getPostTitle(id);

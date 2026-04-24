@@ -1,4 +1,4 @@
-import { getHomeData } from "@/app/lib/home/functions";
+import { getHomeData } from "@app/lib/home/functions";
 import HomeTitleHeading from "./home-title-heading";
 import HomeSubtitleHeading from "./home-subtitle-heading";
 import PreviewsDiv from "./previews-div";
