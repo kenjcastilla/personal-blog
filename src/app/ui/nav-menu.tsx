@@ -8,7 +8,7 @@ export default function NavMenu() {
 
     return (
         <div key="thekey" className={`flex flex-row mt-[1%] w-[94%] md:ml-[1%]
-          ml-0 w-full ${visible ? 'sticky-top-0' : 'h-0'} md:sticky-top-0`}>
+          ml-0 md:w-full ${visible ? 'sticky-top-0' : 'h-0'} md:sticky-top-0`}>
             <NavLinks />
         </div>
     );

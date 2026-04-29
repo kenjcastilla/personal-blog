@@ -27,7 +27,6 @@
       "@app/*": ["./src/app/*"],
       "@lib/*": ["./src/app/lib/*"],
       "@utils/*": ["./src/utils/*"],
-      "@styles/*": ["./src/styles/*"]
 
     },
     "target": "ES2017"
