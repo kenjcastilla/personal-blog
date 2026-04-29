@@ -19,7 +19,6 @@ export default function PostSubtitle({ dates }: {
       handleLoad();
    })
 
-
    return (
       <h2 id="postSubtitle" className={`w-full h-fit text-lg
                     md:text-sm md:text-end
