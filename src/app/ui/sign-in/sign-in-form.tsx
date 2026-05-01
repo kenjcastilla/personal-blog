@@ -47,7 +47,7 @@ export default function SignInForm() {
   return (
     <>
       <input
-        className="h-[2em] px-1 text-custom_black border-2 border-custom_black rounded-md"
+        className="h-[2em] px-1 text-custom_black dark:text-custom_white border-2 dark:border-custom_black rounded-md"
         type="email"
         name="email"
         placeholder="email@email.xyz"
@@ -55,7 +55,7 @@ export default function SignInForm() {
         value={email} />
       <div className="w-full h-[1em]"></div>
       <input
-        className="h-[2em] px-1 text-custom_black border-2 border-custom_black rounded-md"
+        className="h-[2em] px-1 text-custom_black dark:text-custom_white border-2 border-custom_black rounded-md"
         type="password"
         name="password"
         placeholder="passw0rd"
